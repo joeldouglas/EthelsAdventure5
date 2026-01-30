@@ -7,12 +7,12 @@ public class ScenePortal : MonoBehaviour
     public string sceneToLoad; // Type the name of the scene exactly as it appears in your project
 
     // This runs when something enters the "Trigger" area
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(other.tag);
+        Debug.Log(collision.tag);
 
         // Check if the object that touched us has the "Player" tag
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             // Load the scene we typed in the Inspector
             SceneManager.LoadScene(sceneToLoad);

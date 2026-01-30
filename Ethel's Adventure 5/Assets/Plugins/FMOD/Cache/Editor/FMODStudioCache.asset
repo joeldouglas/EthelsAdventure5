@@ -43,7 +43,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639053947422709172
+  lastModified: 639053970770750763
   FileSizes:
   - Name: Desktop
     Value: 1062
@@ -77,7 +77,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1025128362316035011}
   cacheVersion: 131858
-  cacheTime: 639053947423027787
+  cacheTime: 639053970770880794
   SerializableEventsDict:
   - key: event:/SPOT FX/TEST_OneShot
     index: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639053947422704224
+  lastModified: 639053970770730769
   FileSizes:
   - Name: Desktop
     Value: 1284
@@ -228,7 +228,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639053947423009631
+  lastModified: 639053970770860788
   FileSizes:
   - Name: Desktop
     Value: 1582400
@@ -248,7 +248,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639053947422686197
+  lastModified: 639053970770720763
   FileSizes:
   - Name: Desktop
     Value: 39808
@@ -268,7 +268,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639053947423027787
+  lastModified: 639053970770880794
   FileSizes:
   - Name: Desktop
     Value: 506

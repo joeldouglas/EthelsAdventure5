@@ -13,6 +13,9 @@ public class GachaBehaviour : MonoBehaviour
     [SerializeField] private GameObject prizePanel;
     [SerializeField] private TextMeshProUGUI prizeText;
     [SerializeField] private Image prizeImage;
+    // This variable should hold the mask we just won
+    private Mask currentPendingMask; 
+
 
     [Header("Settings")]
     [SerializeField] private bool isEnabled = true;
@@ -147,6 +150,13 @@ public class GachaBehaviour : MonoBehaviour
                          $"Cuteness: +{runtimeMask.finalCuteness} | Scardeyness: +{runtimeMask.finalFear}";
         
         prizeImage.sprite = runtimeMask.maskIcon;
+        currentPendingMask = runtimeMask;
+        // 4. Enable "Select Me" buttons on Team Slots
+
+        foreach(var slot in TeamManager.Instance.slotUIs)
+        {
+            slot.SetButtonState(true); // Turn on the "Select Me" buttons!
+        }
         prizePanel.SetActive(true);
 
         isSpinning = false; // Machine is ready for next spin
@@ -167,5 +177,27 @@ public class GachaBehaviour : MonoBehaviour
         // 3. Ensure the machine is ready for a new spin if it wasn't already
         isSpinning = false;
         canSpin = true;
+    }
+
+    public void SelectCatForPrize(int index)
+    {
+        Debug.Log($"GACHA: Player selected Cat index {index} for prize.");
+        // 1. Don't do anything if there's no prize waiting
+        if (currentPendingMask == null) return;
+
+        // 2. Tell the TeamManager to give the mask to the right cat
+        TeamManager.Instance.EquipMaskToCat(index, currentPendingMask);
+
+        // 3. Cleanup
+        prizePanel.SetActive(false);
+        currentPendingMask = null; // Clear it so it can't be added twice
+        isSpinning = false;
+
+        foreach(var slot in TeamManager.Instance.slotUIs)
+        {
+            slot.SetButtonState(false); // Hide buttons again
+        }
+        
+        Debug.Log($"Gacha: Mask assigned to Cat {index}!");
     }
 }

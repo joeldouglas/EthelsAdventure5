@@ -17,8 +17,11 @@ public class AnimTool : MonoBehaviour
 
         Swelling,
         Turning,
-        SpinningX,
-        SpinningY,
+
+        SpinningX_OneWay,
+        SpinningY_OneWay,
+        SpinningX_BothWays,
+        SpinningY_BothWays,
         
 
         // One-Shots
@@ -93,9 +96,13 @@ public class AnimTool : MonoBehaviour
 
             case Anim.Turning: Turning(); break;
 
-            case Anim.SpinningX: SpinningX(); break;
+            case Anim.SpinningX_OneWay: SpinningX_OneWay(); break;
 
-            case Anim.SpinningY: SpinningY(); break;
+            case Anim.SpinningY_OneWay: SpinningY_OneWay(); break;
+
+            case Anim.SpinningX_BothWays: SpinningX_BothWays(); break;
+
+            case Anim.SpinningY_BothWays: SpinningY_BothWays(); break;
 
         }
 
@@ -150,7 +157,7 @@ public class AnimTool : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                LeanTween.rotateZ(gameObject, -amount, speed * 2)
+                LeanTween.rotateZ(gameObject, -amount * 2, speed)
                     .setDelay(delay)
                     .setOnComplete(() =>
                     {
@@ -162,7 +169,7 @@ public class AnimTool : MonoBehaviour
 
 
 
-    void SpinningX()
+    void SpinningX_OneWay()
     {
 
         if (stopped) return;
@@ -172,13 +179,14 @@ public class AnimTool : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                SpinningX();
+                transform.rotation = Quaternion.identity;
+                SpinningX_OneWay();
             });
 
     }
 
 
-    void SpinningY()
+    void SpinningY_OneWay()
     {
 
         if (stopped) return;
@@ -188,10 +196,48 @@ public class AnimTool : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                SpinningY();
+                transform.rotation = Quaternion.identity;
+                SpinningY_OneWay();
             });
 
     }
+
+
+
+    void SpinningX_BothWays()
+    {
+        LeanTween.rotateX(gameObject, amount, speed)
+            .setEaseInOutQuint()
+            .setDelay(delay)
+            .setOnComplete(() =>
+            {
+                LeanTween.rotateX(gameObject, -amount, speed)
+                .setEaseInOutQuint()
+                .setDelay(delay)
+                .setOnComplete(() =>
+                {
+                    SpinningX_BothWays();
+                });
+            });
+    }
+
+    void SpinningY_BothWays()
+    {
+        LeanTween.rotateY(gameObject, amount, speed)
+            .setEaseInOutQuint()
+            .setDelay(delay)
+            .setOnComplete(() =>
+            {
+                LeanTween.rotateY(gameObject, -amount, speed)
+                .setEaseInOutQuint()
+                .setDelay(delay)
+                .setOnComplete(() =>
+                {
+                    SpinningY_BothWays();
+                });
+            });
+    }
+
 
 
 

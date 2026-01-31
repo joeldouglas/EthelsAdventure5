@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b842f9a899f74aa7a88b221709bdd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenePortal
-  sceneIndexToLoad: 1
+  sceneIndexToLoad: 10
 --- !u!61 &683794707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b842f9a899f74aa7a88b221709bdd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenePortal
-  sceneIndexToLoad: 1
+  sceneIndexToLoad: 0
 --- !u!61 &820514273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1202,6 +1202,7 @@ MonoBehaviour:
   inFight: 0
   canMove: 1
   gacha: {fileID: 0}
+  playerSprite: {fileID: 0}
 --- !u!114 &2118637420
 MonoBehaviour:
   m_ObjectHideFlags: 0

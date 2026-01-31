@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b842f9a899f74aa7a88b221709bdd77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScenePortal
-  sceneIndexToLoad: 8
+  sceneIndexToLoad: 3
 --- !u!61 &1822389996
 BoxCollider2D:
   m_ObjectHideFlags: 0

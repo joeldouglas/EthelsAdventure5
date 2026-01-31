@@ -54,7 +54,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 1000
 --- !u!114 &-4653360624358590538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1025128362316035011}
   cacheVersion: 131858
-  cacheTime: 639054197240000000
+  cacheTime: 639054200260000000
   SerializableEventsDict:
   - key: event:/SPOT FX/_OneShot
     index: 0
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639054166940000000
+  lastModified: 639054200260000000
   FileSizes:
   - Name: Desktop
-    Value: 28064
+    Value: 33856
   Exists: 1
 --- !u!114 &8839942234151116501
 MonoBehaviour:

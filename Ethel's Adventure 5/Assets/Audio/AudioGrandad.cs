@@ -253,12 +253,12 @@ public static class AudioGrandad
 
         if (!ei.isValid())
         {
-            if (DB) db.Log($"{ei.GetType().Name} has stopped");
+            if (DB) db.Log($"{EventPath(ei)} has stopped");
             return true;
         }
 
         ei.getPlaybackState(out var state);
-        if (DB) db.Log($"{ei.GetType().Name} state = {state}");
+        if (DB) db.Log($"{EventPath(ei)} state = {state}");
         return state == PLAYBACK_STATE.STOPPED;
 
     }
@@ -308,9 +308,12 @@ public static class AudioGrandad
 
     public static void FadeOutSound()
     {
-        EventInstance ei = Create(sceneFadeOutPath);
+        OneShot(sceneFadeOutPath);
+        if (DB) db.Log($"Playing OneShot: sceneFadeOutPath");
+
+        /*EventInstance ei = Create(sceneFadeOutPath);
         ei.start();
-        if (DB) db.Log($"Started FadeOutSound: {ei.GetType().Name}");
+        if (DB) db.Log($"Started FadeOutSound as OneShot: {EventPath(ei)}");*/
     }
 
 

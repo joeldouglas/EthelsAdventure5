@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Basil
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  name: Basil
-  sprite: {fileID: 7482667652216324306, guid: 42a6c28938fc447b9ac51f444d0e7f8a, type: 3}
-  cuteness: 2
-  fear: 1
-  mask: {fileID: 0}
+  catName: Basil
+  catSprite: {fileID: 8935144719027914917, guid: f49b677ecce63409e9d149b83a53f153, type: 3}
+  baseCuteness: 2
+  baseFear: 2
+  equippedMask: {fileID: 0}

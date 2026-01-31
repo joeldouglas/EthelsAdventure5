@@ -13,28 +13,28 @@ MonoBehaviour:
   m_Name: BallroomMask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
   maskTypeName: Ballroom
-  maskIcon: {fileID: 0}
+  maskIcon: {fileID: 8440341694134235277, guid: 9cf287d60b5124a379dde11373a5297f, type: 3}
   rarityTiers:
-  - rarityLabel: 
+  - rarityLabel: Common
     tierColor: {r: 0, g: 0, b: 0, a: 0}
     cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
+    fearValue: 1
+  - rarityLabel: Uncommon
+    tierColor: {r: 0.8156863, g: 0.1254902, b: 0.5647059, a: 1}
+    cutenessValue: 1
+    fearValue: 2
+  - rarityLabel: Rare
+    tierColor: {r: 1, g: 0.627451, b: 0.4784314, a: 1}
+    cutenessValue: 1
+    fearValue: 3
+  - rarityLabel: Ultra-Rare
+    tierColor: {r: 0.7215686, g: 0.5254902, b: 0.04313726, a: 1}
+    cutenessValue: 2
+    fearValue: 5
+  - rarityLabel: Legendary
+    tierColor: {r: 0.3333333, g: 0.4196079, b: 0.1843137, a: 1}
+    cutenessValue: 2
+    fearValue: 8
   runtimeDisplayName: 
   finalCuteness: 0
   finalFear: 0

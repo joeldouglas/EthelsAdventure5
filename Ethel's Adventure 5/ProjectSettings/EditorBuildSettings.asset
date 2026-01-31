@@ -35,6 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: ce0f5403ce127974db2ff325ee7ba90a
+  - enabled: 1
+    path: Assets/Scenes/BaFo.unity
+    guid: 89ebbebc6234bdd4dbf55c8be21af021
+  - enabled: 1
+    path: Assets/Scenes/FoFC.unity
+    guid: 258eb9465b156694881aae3eb32264d3
+  - enabled: 1
+    path: Assets/Scenes/TuBe.unity
+    guid: 3813e66207bd29541bd25dcd8d529654
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

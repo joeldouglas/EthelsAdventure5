@@ -19,7 +19,10 @@ public class SceneTransitions : MonoBehaviour
     public static SceneTransitions Instance { get; private set; }
 
     private bool isTransitioning = false;
-    private int targetIndex = -1; 
+    private int targetIndex = -1;
+
+
+    public GameObject anim_ScreenChange;
 
 
     #region Audio Variables
@@ -101,6 +104,11 @@ public class SceneTransitions : MonoBehaviour
 
         }
 
+        // UI_ScreenChange instantiation
+        GameObject UI = Instantiate(anim_ScreenChange);
+        Anim_ScreenChange anim = UI.GetComponent<Anim_ScreenChange>();        
+
+
         // await stopped
         for (int i = 0; i < outInstances.Count; i++)
         {
@@ -141,7 +149,8 @@ public class SceneTransitions : MonoBehaviour
         yield return null;
         SceneStartup(targetIndex);
 
-
+        // anim - bring screen back up
+        anim.ReOpenScene();
 
     }
 

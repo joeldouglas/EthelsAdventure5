@@ -212,25 +212,5 @@ public class GachaBehaviour : MonoBehaviour
         Debug.Log($"Gacha: Mask assigned to Cat {index}!");
     }
 
-    public void SelectCatForPrize(int index)
-    {
-        Debug.Log($"GACHA: Player selected Cat index {index} for prize.");
-        // 1. Don't do anything if there's no prize waiting
-        if (currentPendingMask == null) return;
 
-        // 2. Tell the TeamManager to give the mask to the right cat
-        TeamManager.Instance.EquipMaskToCat(index, currentPendingMask);
-
-        // 3. Cleanup
-        prizePanel.SetActive(false);
-        currentPendingMask = null; // Clear it so it can't be added twice
-        isSpinning = false;
-
-        foreach(var slot in TeamManager.Instance.slotUIs)
-        {
-            slot.SetButtonState(false); // Hide buttons again
-        }
-        
-        Debug.Log($"Gacha: Mask assigned to Cat {index}!");
-    }
 }

@@ -1,21 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; // Required to change scenes!
 
-public class ScenePortal : MonoBehaviour
+
+public class DoorwayTrigger : MonoBehaviour
 {
-    [Header("Settings")]
-    public string sceneToLoad; // Type the name of the scene exactly as it appears in your project
+    [SerializeField] private int sceneIndexToLoad; // Set this in the Inspector
 
-    // This runs when something enters the "Trigger" area
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(collision.tag);
-
-        // Check if the object that touched us has the "Player" tag
-        if (collision.gameObject.CompareTag("Player"))
+        // Check if the object that hit the door is the Player
+        if (other.CompareTag("Player"))
         {
-            // Load the scene we typed in the Inspector
-            SceneManager.LoadScene(sceneToLoad);
+            // This "turns the key" in your SceneTransitions script
+            SceneTransitions.Instance.TransitionTo(sceneIndexToLoad);
         }
     }
 }

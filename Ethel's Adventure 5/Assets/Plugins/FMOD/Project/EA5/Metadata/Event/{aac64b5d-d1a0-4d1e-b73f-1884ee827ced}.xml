@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{aac64b5d-d1a0-4d1e-b73f-1884ee827ced}">
 		<property name="name">
-			<value>SFX_Cat_Meow_Generic</value>
+			<value>Meow_Generic</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

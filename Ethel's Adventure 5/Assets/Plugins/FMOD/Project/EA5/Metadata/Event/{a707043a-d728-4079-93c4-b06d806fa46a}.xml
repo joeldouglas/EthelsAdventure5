@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{a707043a-d728-4079-93c4-b06d806fa46a}">
 		<property name="name">
-			<value>SFX_SceneTransition</value>
+			<value>SceneTransition</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{beddfe9d-3b98-4428-949d-faf2e73ed973}</destination>
+			<destination>{5a563a70-39da-4e63-bb0c-a84764d961f6}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{706eb5ff-4677-4439-a547-94c6662e93fb}</destination>

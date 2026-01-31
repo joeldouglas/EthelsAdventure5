@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{c4558bc6-748c-44bc-943e-fedfa422c299}">
 		<property name="name">
-			<value>SFX_SlotMachine_Pull</value>
+			<value>SlotMachine_Pull</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

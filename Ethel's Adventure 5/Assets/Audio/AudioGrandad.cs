@@ -34,7 +34,28 @@ public static class AudioGrandad
 
 
 
+    /// <summary>
+    /// 
+    ///         SCENE INDEXES
+    ///         
+    ///         [0]     Tutorial
+    ///         [1]     BackAlley
+    ///         [2]     Beach
+    ///         [3]     Catsino Exterior
+    ///         [4]     Catsino Lobby
+    ///         [5]     Forest
+    ///         [6]     Game Over
+    ///         [7]     Menu
+    ///         [8]     Sabine Shop
+    ///         [9]     Win Scene
+    ///         [99]    FOR ME ONLY -- Battle scene
+    /// 
+    /// </summary>
+
+
+
     #region Bank Management
+
 
 
     public static string BankPath(string path)
@@ -46,8 +67,8 @@ public static class AudioGrandad
     private static Dictionary<int, List<string>> banks_bySceneIndex =
         new Dictionary<int, List<string>>
         {
-            { 0, new List<string> { "UI" } },
-            { 1, new List<string> { "Music" }  }
+            { 0, new List<string> { "0_Tutorial" } },
+            { 1, new List<string> {  }  }
         };
 
 
@@ -121,7 +142,7 @@ public static class AudioGrandad
     // Banks for Startup
     private static List<string> banks_Startup = new List<string>
     {
-        "Master.strings", "Core"
+        "Core.strings", "Core"
     };
 
 
@@ -160,11 +181,27 @@ public static class AudioGrandad
 
 
     // hard-coded Events to initialise on scene startup
+    /// <summary>
+    /// 
+    ///         SCENESTART_EVENT PATHS
+    ///         
+    ///         The Events to play instantly on Scene load
+    /// 
+    /// </summary>
     private static Dictionary<int, List<string>> sceneStart_EventPaths = 
         new Dictionary<int, List<string>>
         {
-            { 0, new List<string> { "UI/_Error" } },
-            { 1, new List<string> { "MUSIC/_Music", "SPOT FX/_OneShot" } }
+            { 0, new List<string> { "MUS/Tutorial" } },
+            { 1, new List<string> {  } },
+            { 2, new List<string> {  } },
+            { 3, new List<string> {  } },
+            { 4, new List<string> { "AMB/Casino",  } },
+            { 5, new List<string> {  } },
+            { 6, new List<string> {  } },
+            { 7, new List<string> {  } },
+            { 8, new List<string> {  } },
+            { 9, new List<string> {  } },
+            { 99, new List<string> { "MUS/Battle_1" } }
         };
 
     /* EventReferences dictionary might not actually be necessary
@@ -288,7 +325,7 @@ public static class AudioGrandad
 
     public static SceneTransitions sceneTransitions;
 
-    private static string sceneFadeOutPath = "SPOT FX/_Woosh";
+    private static string sceneFadeOutPath = "SFX/SceneTransition";
     private static EventReference sceneFadeIn;    
 
 

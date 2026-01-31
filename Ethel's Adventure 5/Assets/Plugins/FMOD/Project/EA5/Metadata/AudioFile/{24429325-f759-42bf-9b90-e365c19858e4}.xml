@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="AudioFile" id="{24429325-f759-42bf-9b90-e365c19858e4}">
 		<property name="assetPath">
-			<value>SFX_Cat_Meow_Fear_01.wav</value>
+			<value>SFX/Cats/Meow/Fear/SFX_Cat_Meow_Fear_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>11.0249996</value>

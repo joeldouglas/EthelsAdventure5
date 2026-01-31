@@ -14,6 +14,8 @@ using static AudioGrandad;
 public class SceneTransitions : MonoBehaviour
 {
 
+    private bool firstTimeStartup = true;
+
     public static SceneTransitions Instance { get; private set; }
 
     private bool isTransitioning = false;
@@ -30,15 +32,23 @@ public class SceneTransitions : MonoBehaviour
 
     #region Initialisation
 
-    private void Awake()
+    private void Start()
     {
-        
+
+        if (firstTimeStartup) AudioGrandad.Init();
+
+
+
         if (Instance != null) { Destroy(gameObject); return; }
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
         AudioGrandad.sceneTransitions = Instance;
+
+
+
+        if (firstTimeStartup) StartCoroutine(Initialise_FromScene());
 
     }
 
@@ -134,6 +144,28 @@ public class SceneTransitions : MonoBehaviour
 
 
     }
+
+
+    private IEnumerator Initialise_FromScene()
+    {
+
+        firstTimeStartup = false;
+
+        targetIndex = SceneManager.GetActiveScene().buildIndex;
+        if (targetIndex != -1)
+        {
+            LoadBanks_bySceneIndex(targetIndex, -1, out List<string> banks);
+
+            foreach (var bank in banks)
+                while (!isBankLoaded(bank))
+                    yield return null;
+
+            yield return null;
+            SceneStartup(targetIndex);
+        }
+
+    }
+
 
 
 

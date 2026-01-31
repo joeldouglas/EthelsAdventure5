@@ -550,11 +550,20 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
-  Banks:
   - Core
-  - Music
+  Banks:
+  - 0_Tutorial
+  - 1_BackAlley
+  - 2_Beach
+  - 3_CatsinoExterior
+  - 4_CatsinoLobby
+  - 5_Forest
+  - 6_GameOver
+  - 7_Menu
+  - 8_SabineShop
+  - 9_WinScene
   - UI
+  - X_Battle
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -600,13 +609,13 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 1
+      Value: 0
       HasValue: 1
     LiveUpdatePort:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
+      Value: 0
       HasValue: 1
     OverlayPosition:
       Value: 0

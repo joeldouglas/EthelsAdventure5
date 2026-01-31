@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="MixerGroup" id="{472c5cf1-316d-4936-b792-055f45795795}">
+		<property name="name">
+			<value>MUSIC</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{f923f023-419f-4538-86aa-b9f811309186}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{fd4109dd-ba13-40ba-a485-bd58d7ca465c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{d02127b4-9b8b-4eee-9fee-40be972dedb8}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{f923f023-419f-4538-86aa-b9f811309186}">
+		<relationship name="effects">
+			<destination>{f847d9fb-a3e0-48b8-8a37-e7c4109942f5}</destination>
+			<destination>{66318cf8-ffba-4ea6-8e33-9c90f6927687}</destination>
+			<destination>{48e1ab9e-cdeb-4312-956c-62c03ffb1ccb}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{fd4109dd-ba13-40ba-a485-bd58d7ca465c}" />
+	<object class="CompressorEffect" id="{f847d9fb-a3e0-48b8-8a37-e7c4109942f5}">
+		<property name="threshold">
+			<value>-18</value>
+		</property>
+		<property name="ratio">
+			<value>1.5</value>
+		</property>
+		<property name="attackTime">
+			<value>10</value>
+		</property>
+		<property name="releaseTime">
+			<value>10</value>
+		</property>
+		<property name="gain">
+			<value>1</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{66318cf8-ffba-4ea6-8e33-9c90f6927687}">
+		<property name="threshold">
+			<value>-18</value>
+		</property>
+		<property name="ratio">
+			<value>2</value>
+		</property>
+		<property name="attackTime">
+			<value>1</value>
+		</property>
+		<property name="releaseTime">
+			<value>10</value>
+		</property>
+		<relationship name="sidechains">
+			<destination>{8ff851d8-5687-47ec-84be-2ba51c83c29e}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusFader" id="{48e1ab9e-cdeb-4312-956c-62c03ffb1ccb}" />
+</objects>

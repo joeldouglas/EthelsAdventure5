@@ -27,6 +27,15 @@ public class GachaBehaviour : MonoBehaviour
 
     private bool isSpinning = false;
     private bool canSpin = true;
+    [SerializeField] private GameObject SlotMachineUI;
+
+    //Called When fight ends
+    public void InitializeGacha()
+    {
+        SlotMachineUI.SetActive(true);
+        isEnabled = true;
+        canSpin = true;
+    }
 
     // --- BUTTON TRIGGER ---
     public void SpinSlotMachine()
@@ -180,11 +189,12 @@ public class GachaBehaviour : MonoBehaviour
         isSpinning = false;
         canSpin = true;
 
-         foreach(var slot in TeamManager.Instance.slotUIs)
-        {
-            slot.SetButtonState(false); // Turn off the "Select Me" buttons!
-        }
-        TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
+        //  foreach(var slot in TeamManager.Instance.slotUIs)
+        // {
+        //     slot.SetButtonState(false); // Turn off the "Select Me" buttons!
+        // }
+        // TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
+        SlotMachineUI.SetActive(false); // Hide Gacha UI after selection
 
     }
 
@@ -203,11 +213,13 @@ public class GachaBehaviour : MonoBehaviour
         isSpinning = false;
         canSpin = true;
 
-        foreach(var slot in TeamManager.Instance.slotUIs)
-        {
-            slot.SetButtonState(false); // Hide buttons again
-        }
-        TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
+        // foreach(var slot in TeamManager.Instance.slotUIs)
+        // {
+        //     slot.SetButtonState(false); // Hide buttons again
+        // }
+        // TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
+
+        SlotMachineUI.SetActive(false); // Hide Gacha UI after selection
         
         Debug.Log($"Gacha: Mask assigned to Cat {index}!");
     }

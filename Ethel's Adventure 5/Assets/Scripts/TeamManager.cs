@@ -37,12 +37,6 @@ public class TeamManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        HandleInitialVisibility();
-    }
-
-    // This runs every time a new scene is loaded to ensure the tray is right
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -55,7 +49,14 @@ public class TeamManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Re-find the UI in the new scene since the old UI objects were destroyed
+        // Every time we enter a new scene, re-link the UI
+        FindUIInScene();
+        HandleInitialVisibility();
+    }
+
+    private void Start()
+    {
+        // Initial setup for the first time the game runs
         FindUIInScene();
         HandleInitialVisibility();
     }
@@ -65,7 +66,7 @@ public class TeamManager : MonoBehaviour
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         UpdateUI();
 
-        // Build Index 4 = Prize/Gacha Scene
+        // Build Index 4 = Prize/Gacha Scene (Hide tray initially)
         if (sceneIndex == 4)
         {
             SetTrayVisibility(false);
@@ -76,20 +77,33 @@ public class TeamManager : MonoBehaviour
         }
     }
 
-    private void FindUIInScene()
-    {
-        // In a persistent system, we need to find the new UI tray and slots 
-        // because the ones dragged into the inspector at Start are now gone.
-        // Look for the tray panel tag or name
-        if (trayPanel == null) trayPanel = GameObject.Find("CatTeamPanel");
-        
-        // Find all slots in the scene and sort them
-// Change FindObjectSortMode.None to UnityEngine.FindObjectSortMode.None
-        slotUIs = Object.FindObjectsOfType<TeamSlotUI>();
+   private void FindUIInScene()
+{
+    // 1. Find the Canvas (which must be ACTIVE)
+    Canvas mainCanvas = Object.FindAnyObjectByType<Canvas>();
+    if (mainCanvas == null) return;
 
-        // Sort slots by their internal slotIndex to make sure they match myTeam
-        System.Array.Sort(slotUIs, (a, b) => a.slotIndex.CompareTo(b.slotIndex));
+    // 2. Search all children of the Canvas, INCLUDING inactive ones
+    TeamSlotUI[] allSlots = mainCanvas.GetComponentsInChildren<TeamSlotUI>(true);
+
+    // 3. Initialize our array
+    slotUIs = new TeamSlotUI[3];
+
+    // 4. Map them by their name or SlotIndex
+    foreach (TeamSlotUI slot in allSlots)
+    {
+        if (slot.gameObject.name == "LeftCat") slotUIs[0] = slot;
+        else if (slot.gameObject.name == "MiddleCat") slotUIs[1] = slot;
+        else if (slot.gameObject.name == "RightCat") slotUIs[2] = slot;
     }
+    
+    // 5. Find the Tray Panel (also including inactive)
+    if (trayPanel == null)
+    {
+        Transform trayTransform = mainCanvas.transform.Find("CatTeamPanel");
+        if (trayTransform != null) trayPanel = trayTransform.gameObject;
+    }
+}
 
     public void SetTrayVisibility(bool isVisible)
     {
@@ -114,15 +128,17 @@ public class TeamManager : MonoBehaviour
         {
             if (startingCats[i] != null)
             {
+                // Create the live instances of your cats
                 myTeam.Add(Instantiate(startingCats[i]));
             }
         }
-        UpdateUI();
     }
 
     public void UpdateUI()
     {
-        if (slotUIs == null || slotUIs.Length == 0) return;
+        // If slots are missing (scene change), try to find them
+        if (slotUIs == null || slotUIs.Length == 0 || slotUIs[0] == null) 
+            FindUIInScene();
 
         for (int i = 0; i < myTeam.Count; i++)
         {

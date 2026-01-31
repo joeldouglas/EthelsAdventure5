@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{c136edbd-b2f5-46c6-b288-c6f94d65bbaa}">
+		<property name="assetPath">
+			<value>AMB/AMB_Casino_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>11.0249996</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>7.9990022675736965</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{46479c5f-d143-42e2-812c-508fc5cb88b5}</destination>
+		</relationship>
+	</object>
+</objects>

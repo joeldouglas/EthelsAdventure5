@@ -103,6 +103,10 @@ public class SceneTransitions : MonoBehaviour
             ei.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         }
+        // also stop emitters, if there are any
+        if (allEmitters.Count > 0)
+            foreach (var em in allEmitters)
+                em.Stop();
 
         // UI_ScreenChange instantiation
         GameObject UI = Instantiate(anim_ScreenChange);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8191309252316894288
+--- !u!114 &-6124214637947085465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUSIC/TEST_Stream
+  m_Name: event:/MUSIC/_Music
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUSIC/TEST_Stream
+  Path: event:/MUSIC/_Music
   Guid:
     Data1: -107888141
     Data2: 1278110404
@@ -24,10 +24,64 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 1956779911698347399}
+  - {fileID: 996552108538907149}
   MinDistance: 1
   MaxDistance: 20
   Length: 28000
+--- !u!114 &-5770958831990031798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SPOT FX/_Woosh
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SPOT FX/_Woosh
+  Guid:
+    Data1: 613031805
+    Data2: 1260862754
+    Data3: 1447325629
+    Data4: 15304516
+  Banks:
+  - {fileID: 5939282304874195734}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-4653360624358590538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SPOT FX/_OneShot
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SPOT FX/_OneShot
+  Guid:
+    Data1: 1426675044
+    Data2: 1118499533
+    Data3: -833484910
+    Data4: -119646609
+  Banks:
+  - {fileID: 5939282304874195734}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3120
 --- !u!114 &-1025128362316035011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,11 +97,38 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639053947422709172
+  lastModified: 639054166940000000
   FileSizes:
   - Name: Desktop
-    Value: 1062
+    Value: 1098
   Exists: 1
+--- !u!114 &-286397983703420402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/_Error
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/_Error
+  Guid:
+    Data1: -505241288
+    Data2: 1163095124
+    Data3: 399442320
+    Data4: 1757216327
+  Banks:
+  - {fileID: 8839942234151116501}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 852
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,9 +148,10 @@ MonoBehaviour:
   - {fileID: 3130047850458330172}
   - {fileID: 8839942234151116501}
   EditorEvents:
-  - {fileID: 175989902237316234}
-  - {fileID: -8191309252316894288}
-  - {fileID: 1299407081220847728}
+  - {fileID: -4653360624358590538}
+  - {fileID: -6124214637947085465}
+  - {fileID: -286397983703420402}
+  - {fileID: -5770958831990031798}
   EditorParameters:
   - {fileID: 730412176428349921}
   MasterBanks:
@@ -77,41 +159,16 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1025128362316035011}
   cacheVersion: 131858
-  cacheTime: 639053947423027787
+  cacheTime: 639054197240000000
   SerializableEventsDict:
-  - key: event:/SPOT FX/TEST_OneShot
+  - key: event:/SPOT FX/_OneShot
     index: 0
-  - key: event:/MUSIC/TEST_Stream
+  - key: event:/MUSIC/_Music
     index: 1
-  - key: event:/UI/TEST_Error
+  - key: event:/UI/_Error
     index: 2
---- !u!114 &175989902237316234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SPOT FX/TEST_OneShot
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SPOT FX/TEST_OneShot
-  Guid:
-    Data1: 1426675044
-    Data2: 1118499533
-    Data3: -833484910
-    Data4: -119646609
-  Banks:
-  - {fileID: 5939282304874195734}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3120
+  - key: event:/SPOT FX/_Woosh
+    index: 3
 --- !u!114 &730412176428349921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,34 +196,7 @@ MonoBehaviour:
   - UhOh
   - Battle
   Exists: 1
---- !u!114 &1299407081220847728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/UI/TEST_Error
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/UI/TEST_Error
-  Guid:
-    Data1: -505241288
-    Data2: 1163095124
-    Data3: 399442320
-    Data4: 1757216327
-  Banks:
-  - {fileID: 5939282304874195734}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 852
---- !u!114 &1956779911698347399
+--- !u!114 &996552108538907149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +206,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/TEST_Stream/FunLevel
+  m_Name: parameter:/_Music/FunLevel
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
   Name: FunLevel
   StudioPath: 
@@ -208,7 +238,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639053947422704224
+  lastModified: 639054166940000000
   FileSizes:
   - Name: Desktop
     Value: 1284
@@ -228,7 +258,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639053947423009631
+  lastModified: 639054139800000000
   FileSizes:
   - Name: Desktop
     Value: 1582400
@@ -248,10 +278,10 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639053947422686197
+  lastModified: 639054166940000000
   FileSizes:
   - Name: Desktop
-    Value: 39808
+    Value: 28064
   Exists: 1
 --- !u!114 &8839942234151116501
 MonoBehaviour:
@@ -268,8 +298,8 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639053947423027787
+  lastModified: 639054197240000000
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 13568
   Exists: 1

@@ -23,17 +23,19 @@ public class GachaBehaviour : MonoBehaviour
     [SerializeField] private SpriteRenderer[] wheelSprites;
 
     private bool isSpinning = false;
+    private bool canSpin = true;
 
     // --- BUTTON TRIGGER ---
     public void SpinSlotMachine()
     {
-        if (isSpinning || !isEnabled)
+        if (isSpinning || !isEnabled || !canSpin)
         {
             Debug.Log("<color=yellow>GACHA:</color> Machine is busy or disabled.");
             return;
         }
 
         isSpinning = true;
+        canSpin = false;
         prizePanel.SetActive(false); // Hide previous prize if open
 
         StartCoroutine(SquashHandleEffect());
@@ -142,12 +144,28 @@ public class GachaBehaviour : MonoBehaviour
         // 3. Update UI
         string hexColor = ColorUtility.ToHtmlStringRGB(runtimeMask.finalColor);
         prizeText.text = $"<color=#{hexColor}>{runtimeMask.runtimeDisplayName}</color>\n" +
-                         $"Cute: +{runtimeMask.finalCuteness} | Fear: +{runtimeMask.finalFear}";
+                         $"Cuteness: +{runtimeMask.finalCuteness} | Scardeyness: +{runtimeMask.finalFear}";
         
         prizeImage.sprite = runtimeMask.maskIcon;
         prizePanel.SetActive(true);
 
         isSpinning = false; // Machine is ready for next spin
         Debug.Log($"GACHA: Prize Displayed - {runtimeMask.runtimeDisplayName}");
+    }
+
+    public void TrashCurrentPrize()
+    {
+        Debug.Log("<color=red>GACHA:</color> Prize trashed by player.");
+        
+        // 1. Hide the panel
+        prizePanel.SetActive(false);
+        
+        // 2. Clear the UI fields (Good practice so old prizes don't "ghost" next time)
+        prizeText.text = "";
+        prizeImage.sprite = null;
+
+        // 3. Ensure the machine is ready for a new spin if it wasn't already
+        isSpinning = false;
+        canSpin = true;
     }
 }

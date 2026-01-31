@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CanInteractWithGacha())
         {
-            Debug.Log("All checks passed! Spinning...");
+            Debug.Log("All checks passed! Attempting to spin Gacha.");
             gacha.SpinSlotMachine();
         }
     }

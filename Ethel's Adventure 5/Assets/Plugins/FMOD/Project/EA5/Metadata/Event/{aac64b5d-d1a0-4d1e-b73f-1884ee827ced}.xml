@@ -53,7 +53,7 @@
 			<destination>{f65b03f9-88fb-42b5-9f78-295b1919067e}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d02127b4-9b8b-4eee-9fee-40be972dedb8}</destination>
+			<destination>{c434e7ae-5d23-4ba5-b444-78d5db74ca7e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{fa7008e1-e7cb-4167-adad-09613919ba3f}" />
@@ -92,7 +92,6 @@
 		<property name="length">
 			<value>0.65460317460317463</value>
 		</property>
-		<property name="name" />
 		<relationship name="modulators">
 			<destination>{21c9e2c2-18e5-424d-acc6-1be8bf720fd0}</destination>
 		</relationship>
@@ -129,7 +128,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>0.5</value>
+			<value>3.125</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{367ad09d-b43c-437e-ba90-2c8cd1d00e14}">

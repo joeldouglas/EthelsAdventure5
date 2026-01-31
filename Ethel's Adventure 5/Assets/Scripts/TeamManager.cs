@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+
 public class TeamManager : MonoBehaviour
 {
     public static TeamManager Instance;
+    
 
     [Header("Team Setup")]
     // Drag your Archetype Files (Assets) here in the Inspector
@@ -19,9 +22,15 @@ public class TeamManager : MonoBehaviour
 
 void Start()
 {
+    int SceneChecker = SceneManager.GetActiveScene().buildIndex;
     UpdateUI();
+    if(SceneChecker == 4)
+        {
+            SetTrayVisibility(false);
+        }
     // Hide the entire tray when the game starts
-    SetTrayVisibility(false);
+    else
+    {SetTrayVisibility(true);}
 }
 
 public void SetTrayVisibility(bool isVisible)

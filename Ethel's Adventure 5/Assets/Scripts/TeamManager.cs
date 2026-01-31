@@ -14,6 +14,32 @@ public class TeamManager : MonoBehaviour
     [Header("UI References")]
     public TeamSlotUI[] slotUIs; 
 
+    [Header("Visibility")]
+    [SerializeField] private GameObject trayPanel; // Drag "CatTeamPanel" here
+
+void Start()
+{
+    UpdateUI();
+    // Hide the entire tray when the game starts
+    SetTrayVisibility(false);
+}
+
+public void SetTrayVisibility(bool isVisible)
+{
+        // Also toggle button interactability for safety
+    foreach (var slot in slotUIs)
+    {
+        slot.SetButtonState(isVisible);
+    }
+    
+    if (trayPanel != null)
+    {
+        trayPanel.SetActive(isVisible);
+    }
+
+
+}
+
     void Awake()
     {
         Instance = this;

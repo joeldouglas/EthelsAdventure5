@@ -1,14 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: fb559b9ac2b5f7248a886d6e970af44e
-=======
-guid: 068e1df44e9e74ed2b1dffec1674ba19
->>>>>>> Stashed changes
+guid: 09dadc4f0882144a3991bac2190d9820
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3871565483009314958
-    second: CasinoInterior_PH_0
+      213: 4406838773994088821
+    second: Carpet_pattern_5_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CasinoInterior_PH_0
+      name: Carpet_pattern_5_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
+        width: 1024
         height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 27fe094a4bf654ac0800000000000000
-      internalID: -3871565483009314958
+      spriteID: 579e55a348c382d30800000000000000
+      internalID: 4406838773994088821
       vertices: []
       indices: 
       edges: []
@@ -152,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CasinoInterior_PH_0: -3871565483009314958
+      Carpet_pattern_5_0: 4406838773994088821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

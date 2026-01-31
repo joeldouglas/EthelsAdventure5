@@ -152,6 +152,8 @@ public class GachaBehaviour : MonoBehaviour
         prizeImage.sprite = runtimeMask.maskIcon;
         currentPendingMask = runtimeMask;
         // 4. Enable "Select Me" buttons on Team Slots
+        // SHOW THE TRAY
+        TeamManager.Instance.SetTrayVisibility(true);
 
         foreach(var slot in TeamManager.Instance.slotUIs)
         {
@@ -177,6 +179,13 @@ public class GachaBehaviour : MonoBehaviour
         // 3. Ensure the machine is ready for a new spin if it wasn't already
         isSpinning = false;
         canSpin = true;
+
+         foreach(var slot in TeamManager.Instance.slotUIs)
+        {
+            slot.SetButtonState(false); // Turn off the "Select Me" buttons!
+        }
+        TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
+
     }
 
     public void SelectCatForPrize(int index)
@@ -192,11 +201,13 @@ public class GachaBehaviour : MonoBehaviour
         prizePanel.SetActive(false);
         currentPendingMask = null; // Clear it so it can't be added twice
         isSpinning = false;
+        canSpin = true;
 
         foreach(var slot in TeamManager.Instance.slotUIs)
         {
             slot.SetButtonState(false); // Hide buttons again
         }
+        TeamManager.Instance.SetTrayVisibility(false); // Hide the tray again
         
         Debug.Log($"Gacha: Mask assigned to Cat {index}!");
     }

@@ -30,6 +30,7 @@ public class TeamSlotUI : MonoBehaviour
     // Call this from Gacha to show/hide the buttons during prize selection
     public void SetButtonState(bool active)
     {
-        if(selectButton != null) selectButton.SetActive(active);
+        if(selectButton != null) selectButton.GetComponent<UnityEngine.UI.Button>().interactable = active;
+
     }
 }

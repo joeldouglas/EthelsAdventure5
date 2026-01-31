@@ -702,6 +702,8 @@ GameObject:
   m_Component:
   - component: {fileID: 983067236}
   - component: {fileID: 983067237}
+  - component: {fileID: 983067238}
+  - component: {fileID: 983067239}
   m_Layer: 0
   m_Name: QuestBubble_PH_0
   m_TagString: InteractionBubble
@@ -783,6 +785,40 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &983067238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983067235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2615b8d54682884691b7beafd6aafc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimTool
+  autoplay: 1
+  anim: 1
+  speed: 0.66
+  delay: 0.33
+  amount: 0.33
+--- !u!114 &983067239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983067235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2615b8d54682884691b7beafd6aafc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimTool
+  autoplay: 1
+  anim: 2
+  speed: 0.66
+  delay: 0
+  amount: 15
 --- !u!1 &1840561693
 GameObject:
   m_ObjectHideFlags: 0

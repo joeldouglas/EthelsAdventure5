@@ -1,5 +1,60 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8679613689349284863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SPOT FX/_OneShot
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SPOT FX/_OneShot
+  Guid:
+    Data1: 1426675044
+    Data2: 1118499533
+    Data3: -833484910
+    Data4: -119646609
+  Banks:
+  - {fileID: 5939282304874195734}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3120
+--- !u!114 &-6403559286000173781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/_Music
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUSIC/_Music
+  Guid:
+    Data1: -107888141
+    Data2: 1278110404
+    Data3: -305649505
+    Data4: -1723624664
+  Banks:
+  - {fileID: 3130047850458330172}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4518235024293072919}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 28000
 --- !u!114 &-6124214637947085465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +137,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3120
+--- !u!114 &-4518235024293072919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/_Music/FunLevel
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: FunLevel
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 548509452
+    data2: 3665058822
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - WalkingAbout
+  - UhOh
+  - Battle
+  Exists: 1
 --- !u!114 &-1025128362316035011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,11 +179,38 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639054166940000000
+  lastModified: 639054490013653573
   FileSizes:
   - Name: Desktop
     Value: 1098
   Exists: 1
+--- !u!114 &-681977328798336966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/_Error
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/_Error
+  Guid:
+    Data1: -505241288
+    Data2: 1163095124
+    Data3: 399442320
+    Data4: 1757216327
+  Banks:
+  - {fileID: 8839942234151116501}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 852
 --- !u!114 &-286397983703420402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,10 +257,10 @@ MonoBehaviour:
   - {fileID: 3130047850458330172}
   - {fileID: 8839942234151116501}
   EditorEvents:
-  - {fileID: -4653360624358590538}
-  - {fileID: -6124214637947085465}
-  - {fileID: -286397983703420402}
-  - {fileID: -5770958831990031798}
+  - {fileID: -8679613689349284863}
+  - {fileID: 6774549949953232156}
+  - {fileID: -6403559286000173781}
+  - {fileID: -681977328798336966}
   EditorParameters:
   - {fileID: 730412176428349921}
   MasterBanks:
@@ -159,15 +268,15 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -1025128362316035011}
   cacheVersion: 131858
-  cacheTime: 639054200260000000
+  cacheTime: 639054490013934104
   SerializableEventsDict:
   - key: event:/SPOT FX/_OneShot
     index: 0
-  - key: event:/MUSIC/_Music
-    index: 1
-  - key: event:/UI/_Error
-    index: 2
   - key: event:/SPOT FX/_Woosh
+    index: 1
+  - key: event:/MUSIC/_Music
+    index: 2
+  - key: event:/UI/_Error
     index: 3
 --- !u!114 &730412176428349921
 MonoBehaviour:
@@ -238,7 +347,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639054166940000000
+  lastModified: 639054080720041790
   FileSizes:
   - Name: Desktop
     Value: 1284
@@ -258,7 +367,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639054139800000000
+  lastModified: 639054490013915505
   FileSizes:
   - Name: Desktop
     Value: 1582400
@@ -278,11 +387,38 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/Core.bank
   Name: Core
   StudioPath: bank:/Core
-  lastModified: 639054200260000000
+  lastModified: 639054490013648252
   FileSizes:
   - Name: Desktop
     Value: 33856
   Exists: 1
+--- !u!114 &6774549949953232156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SPOT FX/_Woosh
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SPOT FX/_Woosh
+  Guid:
+    Data1: 613031805
+    Data2: 1260862754
+    Data3: 1447325629
+    Data4: 15304516
+  Banks:
+  - {fileID: 5939282304874195734}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &8839942234151116501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +434,7 @@ MonoBehaviour:
   Path: Assets/Plugins/FMOD/Project/EA5/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639054197240000000
+  lastModified: 639054490013934104
   FileSizes:
   - Name: Desktop
     Value: 13568

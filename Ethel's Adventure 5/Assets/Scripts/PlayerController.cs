@@ -1,36 +1,83 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem; // Still needed for Keyboard detection
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 8f;
+
+    [Header("State")]
+    public bool inFight = false;
+    public bool canMove = true;
+
+    [Header("References")]
+    [SerializeField] private GachaBehaviour gacha;
+
     private Rigidbody2D rb;
-    private Vector2 moveValue; // Now stores BOTH X (left/right) and Y (up/down)
+    private Vector2 moveValue;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // IMPORTANT: Set gravity to 0 so your player doesn't slide down the screen
         rb.gravityScale = 0;
-    }
-
-    // WHAT CALLS THIS? 
-    // The "Player Input" component on your GameObject calls this 
-    // whenever you press a key defined in your Actions file.
-    void OnMove(InputValue value)
-    {
-        // This grabs the (X, Y) from your keyboard/joystick automatically
-        moveValue = value.Get<Vector2>();
+        Debug.Log("Player Initialized. Movement set to 4-way.");
     }
 
     void Update()
     {
-        // FIX: We apply moveValue.x to the X, and moveValue.y to the Y.
-        // DO NOT multiply the existing velocity by speed again in the Y, 
-        // or you will accelerate to infinity!
-        rb.linearVelocity = new Vector2(moveValue.x * speed, moveValue.y * speed);
+        // 1. MOVEMENT LOGIC
+        if (canMove)
+        {
+            float x = 0;
+            float y = 0;
 
-        // Debug.Log needs a capital 'L'!
-        Debug.Log("Current Velocity: " + rb.linearVelocity);
+            // Direct keyboard checks (No Input Action Asset needed for these!)
+            if (Keyboard.current.wKey.isPressed) y = 1;
+            if (Keyboard.current.sKey.isPressed) y = -1;
+            if (Keyboard.current.aKey.isPressed) x = -1;
+            if (Keyboard.current.dKey.isPressed) x = 1;
+
+            moveValue = new Vector2(x, y).normalized;
+        }
+        else
+        {
+            moveValue = Vector2.zero;
+        }
+
+        rb.linearVelocity = moveValue * speed;
+
+        // 2. INTERACTION LOGIC
+        // We check for Spacebar or Enter directly
+        if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            Debug.Log("Manual Input Check: Space/Enter Pressed!");
+            AttemptGachaSpin();
+        }
+    }
+
+    void AttemptGachaSpin()
+    {
+        if (CanInteractWithGacha())
+        {
+            Debug.Log("All checks passed! Spinning...");
+            gacha.SpinSlotMachine();
+        }
+    }
+
+    bool CanInteractWithGacha()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        
+        // DEBUG: This will tell us if the scene name is the problem
+        if (currentScene != "CatsinoLobby") 
+        {
+            Debug.LogWarning("Interaction Failed: Scene name is " + currentScene + " but we need CatsinoLobby");
+            return false;
+        }
+
+        if (inFight) return false;
+        if (gacha == null) { Debug.LogError("Gacha reference is MISSING!"); return false; }
+        
+        return true;
     }
 }

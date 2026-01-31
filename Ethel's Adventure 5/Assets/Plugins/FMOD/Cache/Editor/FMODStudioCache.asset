@@ -1,207 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9098655455697458431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/8_SabineShop.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/8_SabineShop.bank
-  Name: 8_SabineShop
-  StudioPath: bank:/8_SabineShop
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &-8863735460018175583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Cats/Meow_Fear
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Cats/Meow_Fear
-  Guid:
-    Data1: -583744538
-    Data2: 1078265593
-    Data3: -609542994
-    Data4: -763482539
-  Banks:
-  - {fileID: 3066877580959663587}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3000
---- !u!114 &-8669278633605053171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/4_CatsinoLobby.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/4_CatsinoLobby.bank
-  Name: 4_CatsinoLobby
-  StudioPath: bank:/4_CatsinoLobby
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 1745184
-  Exists: 1
---- !u!114 &-8001983568975246776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AMB/Casino
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/AMB/Casino
-  Guid:
-    Data1: 1176183383
-    Data2: 1096339503
-    Data3: 1867034285
-    Data4: -921213633
-  Banks:
-  - {fileID: -8669278633605053171}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8000
---- !u!114 &-7527314261756459699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/3_CatsinoExterior.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/3_CatsinoExterior.bank
-  Name: 3_CatsinoExterior
-  StudioPath: bank:/3_CatsinoExterior
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &-6243355655083411701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/2_Beach.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/2_Beach.bank
-  Name: 2_Beach
-  StudioPath: bank:/2_Beach
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &-5304248670002318481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/UI.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/UI.bank
-  Name: UI
-  StudioPath: bank:/UI
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &-4352817442438976580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/9_WinScene.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/9_WinScene.bank
-  Name: 9_WinScene
-  StudioPath: bank:/9_WinScene
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &-3939858005704328288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/SceneTransition
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/SceneTransition
-  Guid:
-    Data1: -1492712390
-    Data2: 1081726760
-    Data3: 1840301203
-    Data4: 1789161344
-  Banks:
-  - {fileID: 3066877580959663587}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 675
---- !u!114 &-3447465949748291671
+--- !u!114 &-8743025775472434209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -228,7 +27,7 @@ MonoBehaviour:
   - UhOh
   - Battle
   Exists: 1
---- !u!114 &-3394735689296896459
+--- !u!114 &-7687994417804785755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,138 +37,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Core.strings.bank
+  m_Name: bank:/Core.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/Core.strings.bank
-  Name: Core.strings
-  StudioPath: bank:/Core.strings
-  lastModified: 639054774220000000
+  Path: fmod/Project/EA5/Build/Desktop/Core.bank
+  Name: Core
+  StudioPath: bank:/Core
+  lastModified: 639054775900324140
   FileSizes:
   - Name: Desktop
-    Value: 1796
+    Value: 70240
   Exists: 1
---- !u!114 &-1680077715332572892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/0_Tutorial.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/0_Tutorial.bank
-  Name: 0_Tutorial
-  StudioPath: bank:/0_Tutorial
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 1639904
-  Exists: 1
---- !u!114 &-996570581583766604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/X_Battle.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/X_Battle.bank
-  Name: X_Battle
-  StudioPath: bank:/X_Battle
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
-  EditorBanks:
-  - {fileID: -3394735689296896459}
-  - {fileID: -1680077715332572892}
-  - {fileID: 8772930170423067565}
-  - {fileID: -6243355655083411701}
-  - {fileID: -7527314261756459699}
-  - {fileID: -8669278633605053171}
-  - {fileID: 1122271327357988951}
-  - {fileID: 3933426672422028312}
-  - {fileID: 8775637336188149475}
-  - {fileID: -9098655455697458431}
-  - {fileID: -4352817442438976580}
-  - {fileID: 3066877580959663587}
-  - {fileID: -5304248670002318481}
-  - {fileID: -996570581583766604}
-  EditorEvents:
-  - {fileID: 2572564865723054096}
-  - {fileID: -8001983568975246776}
-  - {fileID: 4763719828324271807}
-  - {fileID: 4785231615280350567}
-  - {fileID: 8380210013672784884}
-  - {fileID: -3939858005704328288}
-  - {fileID: 6442848746121589255}
-  - {fileID: -8863735460018175583}
-  EditorParameters:
-  - {fileID: -3447465949748291671}
-  MasterBanks:
-  - {fileID: 3066877580959663587}
-  StringsBanks:
-  - {fileID: -3394735689296896459}
-  cacheVersion: 131858
-  cacheTime: 639054774220000000
-  SerializableEventsDict:
-  - key: event:/MUS/Tutorial
-    index: 0
-  - key: event:/AMB/Casino
-    index: 1
-  - key: event:/MUS/Battle_1
-    index: 2
-  - key: event:/SFX/Casino/SlotMachine_Win
-    index: 3
-  - key: event:/SFX/Casino/SlotMachine_Pull
-    index: 4
-  - key: event:/SFX/SceneTransition
-    index: 5
-  - key: event:/SFX/Cats/Meow_Generic
-    index: 6
-  - key: event:/SFX/Cats/Meow_Fear
-    index: 7
---- !u!114 &1122271327357988951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/5_Forest.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/5_Forest.bank
-  Name: 5_Forest
-  StudioPath: bank:/5_Forest
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 506
-  Exists: 1
---- !u!114 &2572564865723054096
+--- !u!114 &-6773243123016668163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -388,7 +66,7 @@ MonoBehaviour:
     Data3: 1536462249
     Data4: 1550175416
   Banks:
-  - {fileID: -1680077715332572892}
+  - {fileID: 8112326895987911326}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -396,7 +74,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 126066
---- !u!114 &3066877580959663587
+--- !u!114 &-6307276640270780763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,37 +84,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Core.bank
+  m_Name: bank:/2_Beach.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/Core.bank
-  Name: Core
-  StudioPath: bank:/Core
-  lastModified: 639054774220000000
-  FileSizes:
-  - Name: Desktop
-    Value: 70240
-  Exists: 1
---- !u!114 &3933426672422028312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/6_GameOver.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/6_GameOver.bank
-  Name: 6_GameOver
-  StudioPath: bank:/6_GameOver
-  lastModified: 639054774220000000
+  Path: fmod/Project/EA5/Build/Desktop/2_Beach.bank
+  Name: 2_Beach
+  StudioPath: bank:/2_Beach
+  lastModified: 639054775900102022
   FileSizes:
   - Name: Desktop
     Value: 506
   Exists: 1
---- !u!114 &4763719828324271807
+--- !u!114 &-4354236051360484877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +113,7 @@ MonoBehaviour:
     Data3: 639429814
     Data4: -1117864218
   Banks:
-  - {fileID: -8669278633605053171}
+  - {fileID: 3991317882717838269}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -463,7 +121,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 114060
---- !u!114 &4785231615280350567
+--- !u!114 &-4102549973286858822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,24 +131,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Casino/SlotMachine_Win
+  m_Name: event:/SFX/SceneTransition
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Casino/SlotMachine_Win
+  Path: event:/SFX/SceneTransition
   Guid:
-    Data1: 1925849540
-    Data2: 1255630198
-    Data3: -633888088
-    Data4: 43694442
+    Data1: -1492712390
+    Data2: 1081726760
+    Data3: 1840301203
+    Data4: 1789161344
   Banks:
-  - {fileID: -8669278633605053171}
+  - {fileID: -7687994417804785755}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1750
---- !u!114 &6442848746121589255
+  Length: 675
+--- !u!114 &-1571604151105841714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,25 +157,159 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Cats/Meow_Generic
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/SFX/Cats/Meow_Generic
-  Guid:
-    Data1: -1429845155
-    Data2: 1293865376
-    Data3: -2078785609
-    Data4: -310607122
-  Banks:
-  - {fileID: 3066877580959663587}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 654
---- !u!114 &8380210013672784884
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 639054775900344887
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
+  EditorBanks:
+  - {fileID: 519436363443501912}
+  - {fileID: 8112326895987911326}
+  - {fileID: 8201244471876354023}
+  - {fileID: -6307276640270780763}
+  - {fileID: 1829769728251288747}
+  - {fileID: 3991317882717838269}
+  - {fileID: 1560087656854179683}
+  - {fileID: 6791560225271871747}
+  - {fileID: 7900618359678233844}
+  - {fileID: 1903899427461878026}
+  - {fileID: 6216435692676809161}
+  - {fileID: -7687994417804785755}
+  - {fileID: -1571604151105841714}
+  - {fileID: 7068986246497071083}
+  EditorEvents:
+  - {fileID: -6773243123016668163}
+  - {fileID: 8466457135636074948}
+  - {fileID: -4354236051360484877}
+  - {fileID: 6473343092697941993}
+  - {fileID: 2942335597276336112}
+  - {fileID: -4102549973286858822}
+  - {fileID: 5230846845824876601}
+  - {fileID: 3121528109543860670}
+  EditorParameters:
+  - {fileID: -8743025775472434209}
+  MasterBanks:
+  - {fileID: -7687994417804785755}
+  StringsBanks:
+  - {fileID: 519436363443501912}
+  cacheVersion: 131858
+  cacheTime: 639054775900355211
+  SerializableEventsDict:
+  - key: event:/MUS/Tutorial
+    index: 0
+  - key: event:/AMB/Casino
+    index: 1
+  - key: event:/MUS/Battle_1
+    index: 2
+  - key: event:/SFX/Casino/SlotMachine_Win
+    index: 3
+  - key: event:/SFX/Casino/SlotMachine_Pull
+    index: 4
+  - key: event:/SFX/SceneTransition
+    index: 5
+  - key: event:/SFX/Cats/Meow_Generic
+    index: 6
+  - key: event:/SFX/Cats/Meow_Fear
+    index: 7
+--- !u!114 &519436363443501912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Core.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/Core.strings.bank
+  Name: Core.strings
+  StudioPath: bank:/Core.strings
+  lastModified: 639054775900334817
+  FileSizes:
+  - Name: Desktop
+    Value: 1796
+  Exists: 1
+--- !u!114 &1560087656854179683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/5_Forest.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/5_Forest.bank
+  Name: 5_Forest
+  StudioPath: bank:/5_Forest
+  lastModified: 639054775900262576
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &1829769728251288747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/3_CatsinoExterior.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/3_CatsinoExterior.bank
+  Name: 3_CatsinoExterior
+  StudioPath: bank:/3_CatsinoExterior
+  lastModified: 639054775900113444
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &1903899427461878026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/8_SabineShop.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/8_SabineShop.bank
+  Name: 8_SabineShop
+  StudioPath: bank:/8_SabineShop
+  lastModified: 639054775900298351
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &2942335597276336112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -536,7 +328,7 @@ MonoBehaviour:
     Data3: -536985964
     Data4: -1715330396
   Banks:
-  - {fileID: -8669278633605053171}
+  - {fileID: 3991317882717838269}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -544,7 +336,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1248
---- !u!114 &8772930170423067565
+--- !u!114 &3121528109543860670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Cats/Meow_Fear
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Cats/Meow_Fear
+  Guid:
+    Data1: -583744538
+    Data2: 1078265593
+    Data3: -609542994
+    Data4: -763482539
+  Banks:
+  - {fileID: -7687994417804785755}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &3991317882717838269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -554,17 +373,131 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/1_BackAlley.bank
+  m_Name: bank:/4_CatsinoLobby.bank
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: fmod/Project/EA5/Build/Desktop/1_BackAlley.bank
-  Name: 1_BackAlley
-  StudioPath: bank:/1_BackAlley
-  lastModified: 639054774220000000
+  Path: fmod/Project/EA5/Build/Desktop/4_CatsinoLobby.bank
+  Name: 4_CatsinoLobby
+  StudioPath: bank:/4_CatsinoLobby
+  lastModified: 639054775900241974
+  FileSizes:
+  - Name: Desktop
+    Value: 1745184
+  Exists: 1
+--- !u!114 &5230846845824876601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Cats/Meow_Generic
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Cats/Meow_Generic
+  Guid:
+    Data1: -1429845155
+    Data2: 1293865376
+    Data3: -2078785609
+    Data4: -310607122
+  Banks:
+  - {fileID: -7687994417804785755}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 654
+--- !u!114 &6216435692676809161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/9_WinScene.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/9_WinScene.bank
+  Name: 9_WinScene
+  StudioPath: bank:/9_WinScene
+  lastModified: 639054775900309071
   FileSizes:
   - Name: Desktop
     Value: 506
   Exists: 1
---- !u!114 &8775637336188149475
+--- !u!114 &6473343092697941993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Casino/SlotMachine_Win
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Casino/SlotMachine_Win
+  Guid:
+    Data1: 1925849540
+    Data2: 1255630198
+    Data3: -633888088
+    Data4: 43694442
+  Banks:
+  - {fileID: 3991317882717838269}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1750
+--- !u!114 &6791560225271871747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/6_GameOver.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/6_GameOver.bank
+  Name: 6_GameOver
+  StudioPath: bank:/6_GameOver
+  lastModified: 639054775900262576
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &7068986246497071083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/X_Battle.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/X_Battle.bank
+  Name: X_Battle
+  StudioPath: bank:/X_Battle
+  lastModified: 639054775900355211
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &7900618359678233844
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,8 +512,75 @@ MonoBehaviour:
   Path: fmod/Project/EA5/Build/Desktop/7_Menu.bank
   Name: 7_Menu
   StudioPath: bank:/7_Menu
-  lastModified: 639054774220000000
+  lastModified: 639054775900288143
   FileSizes:
   - Name: Desktop
     Value: 506
   Exists: 1
+--- !u!114 &8112326895987911326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/0_Tutorial.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/0_Tutorial.bank
+  Name: 0_Tutorial
+  StudioPath: bank:/0_Tutorial
+  lastModified: 639054775900076667
+  FileSizes:
+  - Name: Desktop
+    Value: 1639904
+  Exists: 1
+--- !u!114 &8201244471876354023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/1_BackAlley.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: fmod/Project/EA5/Build/Desktop/1_BackAlley.bank
+  Name: 1_BackAlley
+  StudioPath: bank:/1_BackAlley
+  lastModified: 639054775900091719
+  FileSizes:
+  - Name: Desktop
+    Value: 506
+  Exists: 1
+--- !u!114 &8466457135636074948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AMB/Casino
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/AMB/Casino
+  Guid:
+    Data1: 1176183383
+    Data2: 1096339503
+    Data3: 1867034285
+    Data4: -921213633
+  Banks:
+  - {fileID: 3991317882717838269}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8000

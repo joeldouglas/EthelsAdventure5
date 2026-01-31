@@ -526,8 +526,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: fmod/Project/EA5/EA5.fspro
-  sourceBankPath: fmod/Project/EA5/Build
+  sourceProjectPath: Assets/Plugins/FMOD/Project/EA5/EA5.fspro
+  sourceBankPath: Assets/Plugins/FMOD/Project/EA5/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
@@ -549,21 +549,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks:
-  - Core
-  Banks:
-  - 0_Tutorial
-  - 1_BackAlley
-  - 2_Beach
-  - 3_CatsinoExterior
-  - 4_CatsinoLobby
-  - 5_Forest
-  - 6_GameOver
-  - 7_Menu
-  - 8_SabineShop
-  - 9_WinScene
-  - UI
-  - X_Battle
+  MasterBanks: []
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -609,13 +596,13 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
+      Value: 1
       HasValue: 1
     LiveUpdatePort:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 0
+      Value: 1
       HasValue: 1
     OverlayPosition:
       Value: 0

@@ -1,0 +1,144 @@
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+using System.Collections;
+using System.Collections.Generic;
+
+using FMODUnity;
+using FMOD.Studio;
+using static AudioGrandad;
+
+
+
+public class SceneTransitions : MonoBehaviour
+{
+
+    public static SceneTransitions Instance { get; private set; }
+
+    private bool isTransitioning = false;
+    private int targetIndex = -1; 
+
+
+    #region Audio Variables
+
+    private static List<EventInstance> outInstances = new();
+
+    #endregion
+
+
+
+    #region Initialisation
+
+    private void Awake()
+    {
+        
+        if (Instance != null) { Destroy(gameObject); return; }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        AudioGrandad.sceneTransitions = Instance;
+
+    }
+
+    #endregion
+
+
+
+
+    // golden boy
+    public void TransitionTo(int buildIndex)
+    {
+
+        if (isTransitioning) return;
+
+        if (buildIndex == -1)
+        { Debug.LogError($"Invalid BuildIndex of {buildIndex}!!"); return; }
+
+
+
+        isTransitioning = true;
+        targetIndex = buildIndex;
+
+
+
+        FadeOutSound();
+
+        StartCoroutine(Transition());
+                
+    }
+
+
+
+    private IEnumerator Transition()
+    {
+
+
+
+        // Store current EventInstances
+        outInstances.Clear();
+        outInstances.AddRange(allInstances);
+
+        // stop 'em
+        for (int i = 0; i < outInstances.Count; i++)
+        {
+
+            var ei = outInstances[i];
+            if (!ei.isValid()) continue;
+
+            ei.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+        }
+
+        // await stopped
+        for (int i = 0; i < outInstances.Count; i++)
+        {
+
+            var ei = outInstances[i];
+            if (!ei.isValid()) continue;
+
+            // waaait
+            float timeout = 5f;
+            while (ei.isValid() && !IsStopped(ei) && timeout > 0)
+            {
+                timeout -= Time.unscaledDeltaTime;
+                yield return null;
+            }
+
+            // be free
+            Release(ei);
+
+        }
+        outInstances.Clear();
+
+
+
+        // load 'em
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        if (targetIndex != -1)
+            LoadBanks_bySceneIndex(targetIndex, currentIndex, out _);
+
+
+
+        // go where you need to go, king
+        isTransitioning = false;
+        var sceneChange = SceneManager.LoadSceneAsync(targetIndex, LoadSceneMode.Single);
+        while (!sceneChange.isDone)
+            yield return null;
+        
+        // wait and step to it
+        yield return null;
+        SceneStartup(targetIndex);
+
+
+
+    }
+
+
+
+    
+
+
+
+}

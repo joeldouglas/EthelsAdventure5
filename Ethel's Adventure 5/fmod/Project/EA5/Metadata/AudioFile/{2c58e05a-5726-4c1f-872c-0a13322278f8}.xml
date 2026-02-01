@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{2c58e05a-5726-4c1f-872c-0a13322278f8}">
+		<property name="assetPath">
+			<value>SFX/Cats/Meow/Attack/SFX_Cat_Meow_Attack_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>11.0249996</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.2168707482993197</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{46479c5f-d143-42e2-812c-508fc5cb88b5}</destination>
+		</relationship>
+	</object>
+</objects>

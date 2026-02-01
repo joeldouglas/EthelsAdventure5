@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     // Reference cache for Scene 4
     private FightManager currentFightManager; 
 
+    public bool start = true;
+    public bool instructions = false;
+
+
     public int currentLevel = 1; // This is the level the player has reached
 
     private void Awake()
@@ -69,6 +73,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSceneContext(int sceneIndex)
     {
+        if(sceneIndex == 0 && start)
+        {
+            canMove = false;
+            GameObject.Find("Start").SetActive(true);
+            GameObject.Find("Instructions").SetActive(true);
+        }
         // Build Index 4 = Catsino (Scene 4)
         if (sceneIndex == 4)
         {
@@ -117,6 +127,22 @@ public class PlayerController : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame)
         {
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            if(sceneIndex == 0)
+            {
+                if (start)
+                {
+                    instructions = true;
+                    start = false;
+                    GameObject.Find("Start").SetActive(false);
+                }
+                else if (instructions)
+                {
+                    instructions = false;
+                    canMove = true;
+                    GameObject.Find("Instructions").SetActive(false);
+                }
+            }
 
             if (sceneIndex == 4) // CATSINO SCENE
             {

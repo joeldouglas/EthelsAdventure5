@@ -5,44 +5,47 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/a/TutorialScene.unity
+  - enabled: 0
+    path: Assets/Scenes/TutorialScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/a/BackAlley.unity
+  - enabled: 0
+    path: Assets/Scenes/BackAlley.unity
     guid: 39246d0bd363a0c42b4fd6981d58d05f
-  - enabled: 1
-    path: Assets/a/Beach.unity
+  - enabled: 0
+    path: Assets/Scenes/Beach.unity
     guid: 4dbe9bd8daaf3d4489c6c0f22477fa7e
-  - enabled: 1
-    path: Assets/a/CatsinoExterior.unity
+  - enabled: 0
+    path: Assets/Scenes/CatsinoExterior.unity
     guid: 8f50d008b3b6da847945173f4685d73f
   - enabled: 1
-    path: Assets/a/CatsinoLobby.unity
+    path: Assets/a/TutorialScene.unity
+    guid: 139da3e1771ed49959fffec8a5733f76
+  - enabled: 1
+    path: Assets/Scenes/CatsinoLobby.unity
     guid: 9db87b7270707b84babc57bba635b8f3
   - enabled: 1
     path: Assets/a/Forest.unity
-    guid: f26b8aea2e4e7ab4c9d46b8fd2abf188
-  - enabled: 1
-    path: Assets/a/GameOver.unity
+    guid: 2a67730a23566436d8b400a1c047e85a
+  - enabled: 0
+    path: Assets/Scenes/GameOver.unity
     guid: bca966798d4052b4cb7f2183ae117eb9
-  - enabled: 1
-    path: Assets/a/Menu.unity
+  - enabled: 0
+    path: Assets/Scenes/Menu.unity
     guid: 0c9fed45d8c213847b671341bec1e55e
-  - enabled: 1
-    path: Assets/a/SabineShop.unity
+  - enabled: 0
+    path: Assets/Scenes/SabineShop.unity
     guid: e9f68579a4558ca4cb04159ae855f06a
-  - enabled: 1
-    path: Assets/a/WinScene.unity
+  - enabled: 0
+    path: Assets/Scenes/WinScene.unity
     guid: ce0f5403ce127974db2ff325ee7ba90a
-  - enabled: 1
-    path: Assets/a/BaFo.unity
+  - enabled: 0
+    path: Assets/Scenes/BaFo.unity
     guid: 89ebbebc6234bdd4dbf55c8be21af021
-  - enabled: 1
-    path: Assets/a/FoFC.unity
+  - enabled: 0
+    path: Assets/Scenes/FoFC.unity
     guid: 258eb9465b156694881aae3eb32264d3
-  - enabled: 1
-    path: Assets/a/TuBe.unity
+  - enabled: 0
+    path: Assets/Scenes/TuBe.unity
     guid: 3813e66207bd29541bd25dcd8d529654
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

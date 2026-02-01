@@ -1,0 +1,21 @@
+ID,Speaker,Line,Context,LOCATION
+0,Sabine,"Hello dear, Marge still in the casino? Poor girl. Poor you. How's about your regular?",prequest talking to ethel on approach,FISH&CHIPS SHOP
+1,Ethel,No time for chippy tea! I need to free marge! I'm not strong enough...,prequest response to Sabine,FISH&CHIPS SHOP
+2,Sabine,"I'll help for a favour. Running out of fish. Get me one fresh from the sea, dear.",prequest response to ethel,FISH&CHIPS SHOP
+3,Ethel,Here you go freshly caught. What can you give me to save my wife?,postquest talking to sabine on approach,FISH&CHIPS SHOP
+4,Sabine,"Bless, dear. Here's a mask to make your kitty stronger. Go get her back!",postquest response to ethel,FISH&CHIPS SHOP
+5,Robin,Ethel! Here for a check-up? How's Marge doing? Gambling is a disease...,prequest talking to ethel on approach,
+6,Ethel ,I know! I'm not strong enough to free her from the casino... I need help!,prequest response to Robin,
+7,Robin,Let's help each other. Go to the forest and get me a freaky tree fish. I wanna run some tests...,prequest response to ethel,
+8,Ethel,Ok I wrangled it. Tree fish are a fascinating evolution... But saving Marge is more urgent!,postquest talking to Robin on approach,
+9,Robin,Post-nuclear life needs to be studied. A mask for your contribution to science!,postquest response to ethel,
+10,Tabby,Howdy Ethel. That casino still causing trouble? It's an eyesore. No flowers anywhere!,prequest talking to ethel on approach,
+11,Ethel,Yeh and they won't give me back Marge! Wanna help me battle them?,prequest response to Tabby,
+12,Tabby,"Yeh I can help but I need you to get me a tree fish first. Go look in the forest, there's loads!",prequest response to ethel,
+13,Ethel,"Here's your tree fish, Tabby. Why would a gardner want one of these? Aren't they pests?",postquest talking to Tabby on approach,
+14,Tabby,"Only to amateurs, they eat radioactive locusts! They defend gardens like this mask will defend your cats!",postquest response to ethel,
+15,Toby ,Hey Ethel! Casino still got your better half? Criminals... They've stolen my favourite gearhead!,Prequest talking to ethel on approach,
+16,Ethel,Then help me Toby! My cats can't beat the House cats...,prequest response to Toby,
+17,Toby ,I think I can help... if you get me a fish? Should be some in the sea...,prequest response to ethel,
+18,Ethel,Here's your fish. What does a mechanic need fish for anyways?,postquest talking to Toby on approach,
+19,Toby ,They can filter impurities from salvaged fuel. Here's your reward. Go save my best customer!,postquest response to ethel,

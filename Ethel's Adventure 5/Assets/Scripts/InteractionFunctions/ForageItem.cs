@@ -32,19 +32,27 @@ public class ForageItem : MonoBehaviour
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            // Create a random offset for the "shake" effect
+            // Create a side-to-side shake effect using Sine
             float x = Mathf.Sin(Time.time * wiggleSpeed) * wiggleAmount;
             transform.localPosition = originalPosition + new Vector3(x, 0, 0);
             yield return null;
         }
 
+        // Reset to exact original position so the tree doesn't "drift"
         transform.localPosition = originalPosition;
         
-        // Give the item
-        //InventoryManager.Instance.AddFish(1);
+        
+        if (PlayerController.Instance != null)
+        {
+            PlayerController.Instance.AddFish(1);
+            Debug.Log("The tree dropped a fish! Player now has: " + PlayerController.Instance.fishCount);
+        }
+        else
+        {
+            Debug.LogWarning("No PlayerController found in the scene to give fish to!");
+        }
         
         isShaking = false;
-        Debug.Log("The forageable dropped a fish!");
     }
 }
    

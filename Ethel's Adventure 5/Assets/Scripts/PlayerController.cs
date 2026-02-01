@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [Header("Settings")]
     public float speed = 8f;
     public bool canMove = true;
+    
+    [Header("Inventory")]
+    public int fishCount = 0; // The fish tally
 
     [Header("References")]
     [SerializeField] private SpriteRenderer playerSprite;
@@ -132,6 +136,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    // --- FISH METHODS ---
+
+    public void AddFish(int amount)
+    {
+        fishCount += amount;
+        Debug.Log("Fish collected! Total: " + fishCount);
+    }
+
 
     private void EndGame()
     {

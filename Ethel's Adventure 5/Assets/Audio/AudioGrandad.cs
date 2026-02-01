@@ -68,8 +68,10 @@ public static class AudioGrandad
         new Dictionary<int, List<string>>
         {
             { 0, new List<string>   { "0_Tutorial" } },
-            { 1, new List<string>   {  }  },
+            { 1, new List<string>   { "1_BackAlley" }  },
             { 2, new List<string>   { "2_Beach" } },
+            { 4, new List<string>   { "4_CatsinoLobby"} },
+            { 5, new List<string>   { "5_Forest" } },
             { 8, new List<string>   { "8_SabineShop" } },
             { 99, new List<string>  { "X_Battle" } }
         };
@@ -194,12 +196,12 @@ public static class AudioGrandad
     private static Dictionary<int, List<string>> sceneStart_EventPaths = 
         new Dictionary<int, List<string>>
         {
-            { 0, new List<string> { "MUS/Tutorial" } },
-            { 1, new List<string> {  } },
-            { 2, new List<string> {  } },
+            { 0, new List<string> { "MUS/Tutorial", "AMB/Tutorial" } },
+            { 1, new List<string> { "MUS/BackAlley" } },
+            { 2, new List<string> {  } }, // started by Emitter instances
             { 3, new List<string> {  } },
             { 4, new List<string> { "AMB/Casino"  } },
-            { 5, new List<string> {  } },
+            { 5, new List<string> { "MUS/Forest" } },
             { 6, new List<string> {  } },
             { 7, new List<string> {  } },
             { 8, new List<string> { "MUS/SabineShop" } },

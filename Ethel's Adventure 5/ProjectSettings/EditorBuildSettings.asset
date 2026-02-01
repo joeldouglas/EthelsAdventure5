@@ -21,11 +21,41 @@ EditorBuildSettings:
     path: Assets/a/TutorialScene.unity
     guid: 139da3e1771ed49959fffec8a5733f76
   - enabled: 1
+    path: Assets/a/BackAlley.unity
+    guid: 4d888b3e98e934651abf71866bd1afe1
+  - enabled: 1
+    path: Assets/a/Beach.unity
+    guid: 35c94bebbea414fe29a960677661926f
+  - enabled: 1
+    path: Assets/a/CatsinoExterior.unity
+    guid: 2aff49e04dff6421b8c1d3d27960fc3c
+  - enabled: 1
     path: Assets/Scenes/CatsinoLobby.unity
     guid: 9db87b7270707b84babc57bba635b8f3
   - enabled: 1
     path: Assets/a/Forest.unity
     guid: 2a67730a23566436d8b400a1c047e85a
+  - enabled: 1
+    path: Assets/a/GameOver.unity
+    guid: 4cffe5b5c240b45fea976aa39a3d2952
+  - enabled: 1
+    path: Assets/a/Menu.unity
+    guid: 1e618a14fba1b464d81ebb719b62d350
+  - enabled: 1
+    path: Assets/a/SabineShop.unity
+    guid: 40385f5dbdb6d45c8908a4e8685420fc
+  - enabled: 1
+    path: Assets/a/WinScene.unity
+    guid: 1bb751749e80c4ef5abd5fedb937f4ed
+  - enabled: 1
+    path: Assets/a/BaFo.unity
+    guid: ffd41c4208e5c4b399cc3a1f29cf8824
+  - enabled: 1
+    path: Assets/a/FoFC.unity
+    guid: 0b00cb8f971984b938bb537cb268c670
+  - enabled: 1
+    path: Assets/a/TuBe.unity
+    guid: c870ed58c679447bca705b7a888d14a2
   - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: bca966798d4052b4cb7f2183ae117eb9

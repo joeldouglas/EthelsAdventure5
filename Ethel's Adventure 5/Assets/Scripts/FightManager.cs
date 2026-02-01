@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 using TMPro; 
 using UnityEngine.UI;
 
+using static AudioGrandad;
+using FMOD.Studio;
+
 public class FightManager : MonoBehaviour
 {
     public enum BattleState { WaitingToStart, Battling, VictoryPrompt, GachaActive, EndScreen }
@@ -48,6 +51,8 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.WaitingToStart;
         UpdatePrompt("Press Space to Start Battle");
+
+        AudioGrandad.StartBattle();
         
         // Ensure Tray is visible
         if(TeamManager.Instance != null)
@@ -156,6 +161,12 @@ public class FightManager : MonoBehaviour
         
         if (playerWon)
         {
+            #region AUDIO CUE
+            AudioGrandad.EndCurrentInstances_Immediate();
+            var ei = AudioGrandad.Create("MUS/Battle_Win");
+            ei.start();
+            #endregion
+
             winner = true;
             currentState = BattleState.VictoryPrompt;
             if(battleCanvas != null) battleCanvas.SetActive(false); 
@@ -314,6 +325,10 @@ public class FightManager : MonoBehaviour
         
         LeanTween.moveLocal(attacker.gameObject, originalPos + targetDir, 0.2f).setEaseOutQuad();
         yield return new WaitForSeconds(0.2f);
+
+        #region AUDIO CUE
+        AudioGrandad.OneShot("SFX/Cats/Meow_Attack");
+        #endregion
 
         int damageToDef = attacker.currentCuteness;
         int damageToAtk = defender.currentCuteness;

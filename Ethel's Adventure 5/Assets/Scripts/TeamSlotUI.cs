@@ -4,38 +4,61 @@ using TMPro;
 
 public class TeamSlotUI : MonoBehaviour
 {
+    [Header("Configuration")]
+    [Tooltip("Set this in Inspector! 0=Left, 1=Middle, 2=Right")]
+    public int slotIndex; 
+
     [Header("Visuals")]
     public Image catImage;       
-    public Image maskOverlay;    // Ensure this is linked!
+    public Image maskOverlay;    
 
     [Header("Text")]
     public TextMeshProUGUI nameText;
-    public TextMeshProUGUI cutenessText; // New separate field
-    public TextMeshProUGUI fearText;     // New separate field
+    public TextMeshProUGUI cutenessText; 
+    public TextMeshProUGUI fearText;     
 
     [Header("Interaction")]
     public Button selectButton; 
 
+    private void Start()
+    {
+        // --- THE FIX: SELF-REGISTRATION ---
+        // As soon as this object loads, it connects itself to the Manager.
+        // This fixes the "Found 0/3 Slots" error.
+        if (TeamManager.Instance != null)
+        {
+            TeamManager.Instance.RegisterSlot(this, slotIndex);
+        }
+    }
+
     public void Refresh(Cat catData)
     {
-        // 1. Update Visuals
+        // Debugging check
+        if (maskOverlay == null) Debug.LogError($"{gameObject.name}: MaskOverlay Image is MISSING in Inspector!");
+        
         if (catData != null)
         {
-            // Cat
+            // Update Cat Image
             if (catImage != null)
             {
                 catImage.sprite = catData.catSprite;
                 catImage.enabled = true;
             }
 
-            // Mask
+            // Update Mask
             if (maskOverlay != null)
             {
                 if (catData.equippedMask != null)
                 {
                     maskOverlay.sprite = catData.equippedMask.maskIcon;
-                    maskOverlay.enabled = true;
-                    maskOverlay.color = catData.equippedMask.finalColor; 
+                    maskOverlay.color = catData.equippedMask.finalColor;
+                    
+                    // Force Alpha to 1
+                    Color c = maskOverlay.color;
+                    c.a = 1f; 
+                    maskOverlay.color = c;
+                    
+                    maskOverlay.enabled = true; 
                 }
                 else
                 {
@@ -43,39 +66,27 @@ public class TeamSlotUI : MonoBehaviour
                 }
             }
 
-            // Name
+            // Update Text
             if (nameText != null) nameText.text = catData.catName;
-            
-            // Stats (Separated)
             if (cutenessText != null) cutenessText.text = catData.TotalCuteness.ToString();
             if (fearText != null) fearText.text = catData.TotalFear.ToString();
         }
         else
         {
-            // Handle Empty Slot
+            // Empty Slot
             if (catImage != null) catImage.enabled = false;
             if (maskOverlay != null) maskOverlay.enabled = false;
             if (nameText != null) nameText.text = "Empty";
-            
             if (cutenessText != null) cutenessText.text = "";
             if (fearText != null) fearText.text = "";
         }
 
-        // 2. Reset Button (Always start hidden until Gacha asks for it)
-        if (selectButton != null)
-        {
-            selectButton.interactable = false;
-            selectButton.gameObject.SetActive(false); 
-        }
+        // Reset Button
+        if (selectButton != null) selectButton.interactable = false; 
     }
 
-    // Called by GachaBehaviour
     public void SetButtonState(bool isActive)
     {
-        if (selectButton != null)
-        {
-            selectButton.gameObject.SetActive(isActive);
-            selectButton.interactable = isActive;
-        }
+        if (selectButton != null) selectButton.interactable = isActive;
     }
 }

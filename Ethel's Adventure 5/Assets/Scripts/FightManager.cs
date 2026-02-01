@@ -39,20 +39,44 @@ public class FightManager : MonoBehaviour
     void Start()
     {
         currentState = BattleState.WaitingToStart;
-        
         UpdatePrompt("Press Space to Start Battle");
         
-        // Show Tray and FORCE update so it isn't empty on load
+        // Ensure Tray is visible
         if(TeamManager.Instance != null)
         {
             TeamManager.Instance.SetTrayVisibility(true);
             TeamManager.Instance.UpdateUI(); 
         }
 
-        // Shuffle Enemy Data (Not Slots!)
+        // Setup Enemies
         List<Cat> randomEnemies = new List<Cat>(enemyArchetypes);
         ShuffleCats(randomEnemies);
         LoadTeams(randomEnemies);
+    }
+
+    // --- NEW: REFRESH METHOD FOR DEBUGGING ---
+    // Called by TeamManager when you equip a mask via Debug
+    public void RefreshPlayerTeam()
+    {
+        // 1. Destroy existing player objects
+        foreach (var fighter in playerFighters)
+        {
+            if (fighter != null) Destroy(fighter.gameObject);
+        }
+        playerFighters.Clear();
+
+        // 2. Respawn using latest TeamManager data
+        if (TeamManager.Instance != null)
+        {
+            List<Cat> playerCats = TeamManager.Instance.myTeam;
+            for (int i = 0; i < playerCats.Count; i++)
+            {
+                if (playerCats[i] != null && i < playerSlots.Length)
+                    SpawnFighter(playerCats[i], playerSlots[i], true);
+            }
+        }
+        
+        Debug.Log("FIGHT MANAGER: Player team refreshed with new stats/masks!");
     }
 
     // --- INPUT HANDLER ---
@@ -68,7 +92,6 @@ public class FightManager : MonoBehaviour
         }
         else if (currentState == BattleState.EndScreen)
         {
-            Debug.Log("Leaving Catsino...");
             SceneTransitions.Instance.TransitionTo(3);
         }
     }
@@ -77,7 +100,6 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.Battling;
         if(promptPanel != null) promptPanel.SetActive(false);
-        TeamManager.Instance.SetTrayVisibility(false); 
         StartCoroutine(BattleRoutine());
     }
 
@@ -85,6 +107,7 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.GachaActive;
         if(promptPanel != null) promptPanel.SetActive(false);
+        TeamManager.Instance.SetTrayVisibility(false); // Hide tray for spin
         if (gacha != null) gacha.SpinSlotMachine();
     }
 
@@ -121,7 +144,6 @@ public class FightManager : MonoBehaviour
         
         if (playerWon)
         {
-            Debug.Log("Victory!");
             currentState = BattleState.VictoryPrompt;
             if(battleCanvas != null) battleCanvas.SetActive(false); 
             if(gacha != null) gacha.InitializeGacha();
@@ -129,7 +151,6 @@ public class FightManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Defeat.");
             ShowEndScreen("Defeat... Press Space to Leave");
         }
     }
@@ -143,13 +164,9 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.EndScreen;
         UpdatePrompt(message);
-        
-        // CRITICAL FIX: Show tray AND refresh data
         TeamManager.Instance.SetTrayVisibility(true);
         TeamManager.Instance.UpdateUI();
     }
-
-    // --- HELPERS ---
 
     void UpdatePrompt(string message)
     {
@@ -185,7 +202,6 @@ public class FightManager : MonoBehaviour
             if (enemiesToSpawn[i] != null && i < enemySlots.Length)
             {
                 Cat enemyInstance = Instantiate(enemiesToSpawn[i]);
-                // Buff Enemies
                 enemyInstance.baseCuteness = Mathf.RoundToInt(enemyInstance.baseCuteness * difficultyMultiplier);
                 enemyInstance.baseFear = Mathf.RoundToInt(enemyInstance.baseFear * difficultyMultiplier);
                 SpawnFighter(enemyInstance, enemySlots[i], false);
@@ -220,7 +236,6 @@ public class FightManager : MonoBehaviour
         Fighter target = GetFighterAtSlot(opponentSlots, lane);
         if (target != null) return target;
 
-        // Check Adjacent
         if (lane == 1) 
         {
             target = GetFighterAtSlot(opponentSlots, 0);
@@ -231,7 +246,6 @@ public class FightManager : MonoBehaviour
             target = GetFighterAtSlot(opponentSlots, 1);
         }
         
-        // Check Far Side
         if (target == null && lane == 0) target = GetFighterAtSlot(opponentSlots, 2);
         if (target == null && lane == 2) target = GetFighterAtSlot(opponentSlots, 0);
 
@@ -243,11 +257,9 @@ public class FightManager : MonoBehaviour
         Vector3 originalPos = attacker.transform.localPosition;
         Vector3 targetDir = (defender.transform.position - attacker.transform.position).normalized * 50f;
         
-        // Animation: Bump
         LeanTween.moveLocal(attacker.gameObject, originalPos + targetDir, 0.2f).setEaseOutQuad();
         yield return new WaitForSeconds(0.2f);
 
-        // --- MUTUAL DAMAGE LOGIC ---
         int damageToDef = attacker.currentCuteness;
         int damageToAtk = defender.currentCuteness;
 
@@ -260,18 +272,15 @@ public class FightManager : MonoBehaviour
         defender.UpdateUI();
         attacker.UpdateUI();
 
-        // --- VISUALS ---
         float defX = defender.transform.localPosition.x;
         LeanTween.moveLocalX(defender.gameObject, defX + 10f, 0.1f).setLoopPingPong(2);
 
         float atkX = attacker.transform.localPosition.x;
         LeanTween.moveLocalX(attacker.gameObject, atkX - 10f, 0.1f).setLoopPingPong(2);
 
-        // --- DEATH CHECKS ---
         bool attackerDied = false;
 
         if (defender.currentFear <= 0) HandleDefeat(defender);
-        
         if (attacker.currentFear <= 0) 
         {
             HandleDefeat(attacker);
@@ -283,10 +292,7 @@ public class FightManager : MonoBehaviour
             LeanTween.moveLocal(attacker.gameObject, originalPos, 0.2f);
             yield return new WaitForSeconds(0.2f);
         }
-        else
-        {
-            yield return new WaitForSeconds(0.2f);
-        }
+        else yield return new WaitForSeconds(0.2f);
     }
 
     private void HandleDefeat(Fighter f)

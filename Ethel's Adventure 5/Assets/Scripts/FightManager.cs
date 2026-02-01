@@ -13,6 +13,7 @@ public class FightManager : MonoBehaviour
     [Header("UI References")]
     public GameObject promptPanel;     
     public TextMeshProUGUI promptText; 
+    public TextMeshProUGUI levelText; 
     public GameObject battleCanvas;    
     
     [Header("References")]
@@ -28,13 +29,20 @@ public class FightManager : MonoBehaviour
 
     [Header("Enemy Setup")]
     public List<Cat> enemyArchetypes; 
-    public float difficultyMultiplier = 1.2f;
+    
+    // --- NEW: LIST OF MASKS ENEMIES CAN USE ---
+    public List<Mask> enemyMaskLibrary; 
+
+    [Header("Difficulty Scaling")]
+    public float baseDifficulty = 1.0f;
+    public float levelScalar = 0.2f; // How much harder per level (e.g. 0.2 = +20%)
 
     [Header("Battle Settings")]
     public float timeBetweenTurns = 1.0f;
 
     private List<Fighter> playerFighters = new List<Fighter>();
     private List<Fighter> enemyFighters = new List<Fighter>();
+    private bool winner = false;
 
     void Start()
     {
@@ -48,24 +56,26 @@ public class FightManager : MonoBehaviour
             TeamManager.Instance.UpdateUI(); 
         }
 
+        if(PlayerController.Instance != null)
+        {
+            levelText.text = "Level " + PlayerController.Instance.currentLevel.ToString();
+        }
+
         // Setup Enemies
         List<Cat> randomEnemies = new List<Cat>(enemyArchetypes);
         ShuffleCats(randomEnemies);
         LoadTeams(randomEnemies);
     }
 
-    // --- NEW: REFRESH METHOD FOR DEBUGGING ---
-    // Called by TeamManager when you equip a mask via Debug
+    // --- REFRESH METHOD FOR DEBUGGING ---
     public void RefreshPlayerTeam()
     {
-        // 1. Destroy existing player objects
         foreach (var fighter in playerFighters)
         {
             if (fighter != null) Destroy(fighter.gameObject);
         }
         playerFighters.Clear();
 
-        // 2. Respawn using latest TeamManager data
         if (TeamManager.Instance != null)
         {
             List<Cat> playerCats = TeamManager.Instance.myTeam;
@@ -75,7 +85,6 @@ public class FightManager : MonoBehaviour
                     SpawnFighter(playerCats[i], playerSlots[i], true);
             }
         }
-        
         Debug.Log("FIGHT MANAGER: Player team refreshed with new stats/masks!");
     }
 
@@ -93,6 +102,10 @@ public class FightManager : MonoBehaviour
         else if (currentState == BattleState.EndScreen)
         {
             SceneTransitions.Instance.TransitionTo(3);
+            if(winner) {
+                LevelUp();
+                winner = false;
+            }
         }
     }
 
@@ -107,7 +120,6 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.GachaActive;
         if(promptPanel != null) promptPanel.SetActive(false);
-        // TeamManager.Instance.SetTrayVisibility(false); // Hide tray for spin
         if (gacha != null) gacha.SpinSlotMachine();
     }
 
@@ -144,6 +156,7 @@ public class FightManager : MonoBehaviour
         
         if (playerWon)
         {
+            winner = true;
             currentState = BattleState.VictoryPrompt;
             if(battleCanvas != null) battleCanvas.SetActive(false); 
             if(gacha != null) gacha.InitializeGacha();
@@ -191,6 +204,7 @@ public class FightManager : MonoBehaviour
         playerFighters.Clear();
         enemyFighters.Clear();
 
+        // 1. Spawn Players
         List<Cat> playerCats = TeamManager.Instance.myTeam;
         for (int i = 0; i < playerCats.Count; i++)
         {
@@ -198,13 +212,53 @@ public class FightManager : MonoBehaviour
                 SpawnFighter(playerCats[i], playerSlots[i], true);
         }
 
+        // 2. Calculate Difficulty Multiplier based on Level
+        float currentMultiplier = baseDifficulty;
+        if(PlayerController.Instance != null)
+        {
+            // Level 1 = 1.0, Level 2 = 1.2, Level 3 = 1.4 (if scalar is 0.2)
+            currentMultiplier = baseDifficulty + ((PlayerController.Instance.currentLevel - 1) * levelScalar);
+        }
+        
+        Debug.Log($"DIFFCULTY: Level {PlayerController.Instance.currentLevel} | Multiplier: {currentMultiplier}");
+
+        // 3. Spawn Enemies (With Masks!)
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
             if (enemiesToSpawn[i] != null && i < enemySlots.Length)
             {
                 Cat enemyInstance = Instantiate(enemiesToSpawn[i]);
-                enemyInstance.baseCuteness = Mathf.RoundToInt(enemyInstance.baseCuteness * difficultyMultiplier);
-                enemyInstance.baseFear = Mathf.RoundToInt(enemyInstance.baseFear * difficultyMultiplier);
+                
+                // --- A. RANDOM MASK ASSIGNMENT ---
+                if (enemyMaskLibrary != null && enemyMaskLibrary.Count > 0)
+                {
+                    // Pick a random mask type
+                    Mask archetype = enemyMaskLibrary[Random.Range(0, enemyMaskLibrary.Count)];
+                    Mask runtimeMask = Instantiate(archetype);
+
+                    // Pick a random rarity (0 to 4)
+                    int tier = Random.Range(0, 5); 
+                    
+                    // Safety check if mask has fewer tiers
+                    if (runtimeMask.rarityTiers == null || tier >= runtimeMask.rarityTiers.Length) tier = 0;
+
+                    // Configure the mask data
+                    Mask.RarityData data = runtimeMask.rarityTiers[tier];
+                    runtimeMask.finalCuteness = data.cutenessValue;
+                    runtimeMask.finalFear = data.fearValue;
+                    runtimeMask.finalColor = data.tierColor;
+                    runtimeMask.runtimeDisplayName = $"{data.rarityLabel} {archetype.maskTypeName}"; // e.g. "Rare Lucha"
+
+                    // Equip it to the enemy
+                    enemyInstance.EquipMask(runtimeMask);
+                }
+
+                // --- B. APPLY STAT SCALING ---
+                // Note: We scale the BASE stats. The Mask stats are added on top of this by the Cat class.
+                // If you want to scale the Mask stats too, you'd need to modify runtimeMask.finalCuteness above.
+                enemyInstance.baseCuteness = Mathf.RoundToInt(enemyInstance.baseCuteness * currentMultiplier);
+                enemyInstance.baseFear = Mathf.RoundToInt(enemyInstance.baseFear * currentMultiplier);
+                
                 SpawnFighter(enemyInstance, enemySlots[i], false);
             }
         }
@@ -301,5 +355,15 @@ public class FightManager : MonoBehaviour
         if (f.isPlayer) playerFighters.Remove(f);
         else enemyFighters.Remove(f);
         Destroy(f.gameObject);
+    }
+
+    public void LevelUp()
+    {
+        if(PlayerController.Instance != null)
+        {
+            PlayerController.Instance.currentLevel++;
+            if(levelText != null) levelText.text = "Level " + PlayerController.Instance.currentLevel.ToString();
+            Debug.Log($"<color=green>LEVEL UP!</color> Current Level: {PlayerController.Instance.currentLevel}");
+        }
     }
 }

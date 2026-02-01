@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Custard
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Custard
+  catSprite: {fileID: 6082383922998883042, guid: 4f15d1ab1ed0f43b58cbb3a281779b8b, type: 3}
+  baseCuteness: 2
+  baseFear: 4
   equippedMask: {fileID: 0}

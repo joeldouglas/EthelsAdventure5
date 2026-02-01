@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Groucho
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Groucho
+  catSprite: {fileID: -4387038812998402718, guid: 168b91962a7dd43d79394486806cf7a2, type: 3}
+  baseCuteness: 2
+  baseFear: 3
   equippedMask: {fileID: 0}

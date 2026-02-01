@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Cleo
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Cleo
+  catSprite: {fileID: -4883281996913610832, guid: e147dedfcdd454b4e8992a093a67770d, type: 3}
+  baseCuteness: 1
+  baseFear: 3
   equippedMask: {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Luna
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Luna
+  catSprite: {fileID: 2713998933863024714, guid: afb94314f91024b92a36e70e2e956719, type: 3}
+  baseCuteness: 3
+  baseFear: 4
   equippedMask: {fileID: 0}

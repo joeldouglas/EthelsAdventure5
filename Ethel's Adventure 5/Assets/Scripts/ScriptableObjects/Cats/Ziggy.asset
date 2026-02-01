@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Ziggy
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Ziggy
+  catSprite: {fileID: 672568076893623161, guid: e119f05aa94144f52b724013538add38, type: 3}
+  baseCuteness: 4
+  baseFear: 3
   equippedMask: {fileID: 0}

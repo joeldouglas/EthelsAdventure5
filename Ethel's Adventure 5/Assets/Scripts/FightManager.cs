@@ -107,7 +107,7 @@ public class FightManager : MonoBehaviour
     {
         currentState = BattleState.GachaActive;
         if(promptPanel != null) promptPanel.SetActive(false);
-        TeamManager.Instance.SetTrayVisibility(false); // Hide tray for spin
+        // TeamManager.Instance.SetTrayVisibility(false); // Hide tray for spin
         if (gacha != null) gacha.SpinSlotMachine();
     }
 
@@ -147,6 +147,7 @@ public class FightManager : MonoBehaviour
             currentState = BattleState.VictoryPrompt;
             if(battleCanvas != null) battleCanvas.SetActive(false); 
             if(gacha != null) gacha.InitializeGacha();
+            if(TeamManager.Instance != null) TeamManager.Instance.SetTrayVisibility(false); 
             UpdatePrompt("Victory! Press Space to Spin");
         }
         else

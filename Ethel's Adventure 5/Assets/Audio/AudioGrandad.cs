@@ -206,7 +206,7 @@ public static class AudioGrandad
             { 7, new List<string> {  } },
             { 8, new List<string> { "MUS/SabineShop" } },
             { 9, new List<string> {  } },
-            { 99, new List<string> { "MUS/Battle_1" } }
+            { 99, new List<string> { "MUS/Battle_2" } }
         };
 
     /* EventReferences dictionary might not actually be necessary
@@ -400,5 +400,23 @@ public static class AudioGrandad
     #endregion
 
 
+
+
+    public static void StartBattle()
+    {
+        LoadBanks_bySceneIndex(99, -1, out _);
+        SceneStartup(99);
+    }
+
+
+
+
+    public static void EndCurrentInstances_Immediate()
+    {
+        foreach (var ei in allInstances)
+        {
+            ei.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
+    }    
 
 }

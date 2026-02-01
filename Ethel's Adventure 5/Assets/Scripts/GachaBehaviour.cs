@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro; 
 using UnityEngine.UI;
 
+using static AudioGrandad;
+
 public class GachaBehaviour : MonoBehaviour
 {
     [Header("Gacha Library")]
@@ -49,6 +51,10 @@ public class GachaBehaviour : MonoBehaviour
     public void SpinSlotMachine()
     {
         if (isSpinning || !isEnabled || !canSpin) return;
+
+        #region AUDIO CUE
+        AudioGrandad.OneShot("SFX/Casino/SlotMachine_Pull");
+        #endregion
 
         isSpinning = true;
         canSpin = false;
@@ -147,6 +153,10 @@ public class GachaBehaviour : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (maskLibrary.Count == 0) { isSpinning = false; yield break; }
 
+        #region AUDIO CUE
+        AudioGrandad.OneShot("SFX/Casino/SlotMachine_Win");
+        #endregion
+
         Mask archetype = maskLibrary[Random.Range(0, maskLibrary.Count)];
         Mask runtimeMask = Instantiate(archetype);
         Mask.RarityData selected = archetype.rarityTiers[tierIndex];
@@ -183,6 +193,11 @@ public class GachaBehaviour : MonoBehaviour
     {
         if (currentPendingMask == null) return;
         TeamManager.Instance.EquipMaskToCat(index, currentPendingMask);
+
+        #region AUDIO CUE
+        AudioGrandad.OneShot("UI/MaskSelect");
+        #endregion
+
         CleanupGacha();
         if (fightManager != null) fightManager.OnGachaCompleted();
     }

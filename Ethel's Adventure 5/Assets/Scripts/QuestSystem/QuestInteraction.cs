@@ -10,6 +10,7 @@ public class QuestInteraction : MonoBehaviour
     public InteractableType interactableType;
 
     public GameObject questCompleteNotif;
+    public GameObject questPrize;
 
     public void Interact()
     {

@@ -63,3 +63,4 @@ fmod_editor.log
 /Assets/FMODAssets/*
 /Assets/FMODStudioCache.meta
 *.meta
+*.pdc

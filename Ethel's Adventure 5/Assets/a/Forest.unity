@@ -3420,7 +3420,6 @@ GameObject:
   - component: {fileID: 1879358069}
   - component: {fileID: 1879358073}
   - component: {fileID: 1879358074}
-  - component: {fileID: 1879358075}
   m_Layer: 0
   m_Name: HarvestTree1
   m_TagString: Untagged
@@ -3620,21 +3619,6 @@ MonoBehaviour:
   wiggleAmount: 0.1
   wiggleSpeed: 20
   duration: 0.5
---- !u!114 &1879358075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879358068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7ef7d610810b4468bcb75554140557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestInteraction
-  questName: 2
-  interactableType: 1
-  questCompleteNotif: {fileID: 4490978775846817053, guid: 0b15bdc21632a4d49897b62328063a69, type: 3}
 --- !u!1 &1897835611
 GameObject:
   m_ObjectHideFlags: 0

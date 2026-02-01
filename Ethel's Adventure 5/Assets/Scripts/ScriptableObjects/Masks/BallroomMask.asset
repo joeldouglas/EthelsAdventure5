@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BallroomMask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
   maskTypeName: Ballroom
-  maskIcon: {fileID: 8440341694134235277, guid: 9cf287d60b5124a379dde11373a5297f, type: 3}
+  maskIcon: {fileID: 21300000, guid: 9cf287d60b5124a379dde11373a5297f, type: 3}
   rarityTiers:
   - rarityLabel: Common
     tierColor: {r: 0, g: 0, b: 0, a: 0}

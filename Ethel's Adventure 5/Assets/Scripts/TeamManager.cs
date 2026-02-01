@@ -10,7 +10,7 @@ public class TeamManager : MonoBehaviour
     [SerializeField] private List<Cat> startingCats; 
     public List<Cat> myTeam = new List<Cat>(); 
 
-    [Header("UI References (Auto-Linked via Registration)")]
+    [Header("UI References")]
     public TeamSlotUI[] slotUIs = new TeamSlotUI[3]; 
     public GameObject trayPanel; 
 
@@ -40,11 +40,10 @@ public class TeamManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Clear references on load
         slotUIs = new TeamSlotUI[3];
-        trayPanel = null;
+        trayPanel = null; // Reset reference
+        FindTrayPanel();  // Aggressive search
         
-        FindTrayPanel(); // Still need to find the panel container
         HandleInitialVisibility();
         UpdateDebugView();
     }
@@ -55,7 +54,6 @@ public class TeamManager : MonoBehaviour
         HandleInitialVisibility();
     }
 
-    // --- INITIALIZATION (Includes Starting Masks) ---
     private void InitializeTeam()
     {
         myTeam.Clear();
@@ -63,31 +61,20 @@ public class TeamManager : MonoBehaviour
         {
             if (startingCats[i] != null) 
             {
-                // 1. Create a Runtime Copy of the Cat
                 Cat newCat = Instantiate(startingCats[i]);
-
-                // 2. Handle Starting Masks
-                // If the ScriptableObject had a mask assigned in the inspector...
                 if (newCat.equippedMask != null)
                 {
-                    // Create a runtime copy of that mask so we don't edit the asset
                     Mask newMask = Instantiate(newCat.equippedMask);
-
-                    // Initialize the mask with default stats (Tier 0 / Common)
-                    // This ensures the numbers aren't 0
                     if (newMask.rarityTiers != null && newMask.rarityTiers.Length > 0)
                     {
-                        Mask.RarityData data = newMask.rarityTiers[0]; // Default to Common
+                        Mask.RarityData data = newMask.rarityTiers[0];
                         newMask.finalCuteness = data.cutenessValue;
                         newMask.finalFear = data.fearValue;
                         newMask.finalColor = data.tierColor;
                         newMask.runtimeDisplayName = $"{data.rarityLabel} {newMask.maskTypeName}";
                     }
-
-                    // Assign the setup mask to the cat
                     newCat.equippedMask = newMask;
                 }
-
                 myTeam.Add(newCat);
             }
         }
@@ -96,13 +83,39 @@ public class TeamManager : MonoBehaviour
 
     private void HandleInitialVisibility()
     {
-        // Always start visible so the tray populates immediately.
-        // The FightManager will hide it later if needed (e.g. during Gacha spin).
+        // Always attempt to show it first. Logic elsewhere (Gacha) will hide it if needed.
         SetTrayVisibility(true);
         UpdateUI();
     }
 
-    // --- REGISTRATION & FINDING ---
+    // --- THE FIX: ROBUST PANEL FINDING ---
+    private void FindTrayPanel()
+    {
+        // 1. Try simple search (works if active)
+        GameObject directObj = GameObject.Find("CatTeamPanel");
+        if (directObj != null)
+        {
+            trayPanel = directObj;
+            return;
+        }
+
+        // 2. DEEP SEARCH: Look in ALL Canvases (including inactive objects)
+        Canvas[] allCanvases = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None);
+        foreach (Canvas c in allCanvases)
+        {
+            Transform[] allKids = c.GetComponentsInChildren<Transform>(true);
+            foreach (Transform t in allKids)
+            {
+                if (t.name == "CatTeamPanel")
+                {
+                    trayPanel = t.gameObject;
+                    return; // Found it!
+                }
+            }
+        }
+        
+        // If we get here, we haven't found it yet, but RegisterSlot might find it via parents.
+    }
 
     public void RegisterSlot(TeamSlotUI slot, int index)
     {
@@ -110,27 +123,20 @@ public class TeamManager : MonoBehaviour
         {
             slotUIs[index] = slot;
             
-            // Immediate Refresh upon connection
+            // --- FALLBACK FIX ---
+            // If we still haven't found the tray, check the slot's parent!
+            if (trayPanel == null && slot.transform.parent != null)
+            {
+                if (slot.transform.parent.name == "CatTeamPanel")
+                {
+                    trayPanel = slot.transform.parent.gameObject;
+                }
+            }
+
             if (index < myTeam.Count && myTeam[index] != null)
                 slot.Refresh(myTeam[index]);
             else
                 slot.Refresh(null);
-        }
-    }
-
-    private void FindTrayPanel()
-    {
-        Canvas mainCanvas = Object.FindAnyObjectByType<Canvas>();
-        if (mainCanvas == null) return;
-
-        Transform[] allTransforms = mainCanvas.GetComponentsInChildren<Transform>(true);
-        foreach(Transform t in allTransforms)
-        {
-            if (t.name == "CatTeamPanel")
-            {
-                trayPanel = t.gameObject;
-                break;
-            }
         }
     }
 
@@ -155,7 +161,16 @@ public class TeamManager : MonoBehaviour
     public void SetTrayVisibility(bool isVisible)
     {
         if (trayPanel == null) FindTrayPanel();
-        if (trayPanel != null) trayPanel.SetActive(isVisible);
+        
+        if (trayPanel != null)
+        {
+            trayPanel.SetActive(isVisible);
+        }
+        else
+        {
+            // Only warn if we are trying to SHOW it and can't find it
+            if(isVisible) Debug.LogWarning("TeamManager: Trying to show tray, but 'CatTeamPanel' not found!");
+        }
     }
 
     public void EquipMaskToCat(int index, Mask mask)
@@ -163,13 +178,11 @@ public class TeamManager : MonoBehaviour
         if (index >= 0 && index < myTeam.Count && myTeam[index] != null)
         {
             myTeam[index].EquipMask(mask);
-            Debug.Log($"<color=cyan>TEAM MANAGER:</color> Equipped {mask.runtimeDisplayName} to {myTeam[index].catName}");
             UpdateUI(); 
         }
     }
 
-    // --- DEBUG ---
-
+    // --- DEBUG HELPERS ---
     private void UpdateDebugView()
     {
         teamStatusView.Clear();
@@ -182,22 +195,14 @@ public class TeamManager : MonoBehaviour
     }
 
     [ContextMenu("Debug: Equip Mask Now")]
-    [ContextMenu("Debug: Equip Mask Now")]
     public void DebugEquipMask()
     {
-        if (debugMaskToEquip == null)
-        {
-            Debug.LogWarning("Assign a mask to 'Debug Mask To Equip' first!");
-            return;
-        }
+        if (debugMaskToEquip == null) return;
 
         Mask newMask = Instantiate(debugMaskToEquip);
         int tierIndex = (int)debugRarity;
 
-        if (newMask.rarityTiers == null || tierIndex >= newMask.rarityTiers.Length)
-        {
-            tierIndex = 0;
-        }
+        if (newMask.rarityTiers == null || tierIndex >= newMask.rarityTiers.Length) tierIndex = 0;
 
         Mask.RarityData data = newMask.rarityTiers[tierIndex];
         newMask.finalCuteness = data.cutenessValue;
@@ -207,15 +212,9 @@ public class TeamManager : MonoBehaviour
 
         EquipMaskToCat(debugCatIndex, newMask);
 
-        // --- THE FIX: FORCE FIGHT MANAGER TO RESPAWN ---
-        // 1. Find the FightManager (it exists in Scene 4)
+        // Refresh Battle
         FightManager fm = Object.FindAnyObjectByType<FightManager>();
-        
-        // 2. If found, tell it to wipe the old cats and spawn new ones
-        if (fm != null)
-        {
-            fm.RefreshPlayerTeam();
-        }
+        if (fm != null) fm.RefreshPlayerTeam();
     }
 
     [ContextMenu("Debug: Unequip All")]

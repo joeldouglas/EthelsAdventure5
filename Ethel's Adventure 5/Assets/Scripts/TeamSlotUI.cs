@@ -22,12 +22,36 @@ public class TeamSlotUI : MonoBehaviour
 
     private void Start()
     {
-        // --- THE FIX: SELF-REGISTRATION ---
-        // As soon as this object loads, it connects itself to the Manager.
-        // This fixes the "Found 0/3 Slots" error.
+        // 1. SELF-REGISTRATION
         if (TeamManager.Instance != null)
         {
             TeamManager.Instance.RegisterSlot(this, slotIndex);
+        }
+
+        // 2. DYNAMIC BUTTON WIRING (The Fix)
+        // We set up the click listener via code so it doesn't break across scenes.
+        if (selectButton != null)
+        {
+            // Remove old listeners to prevent double-clicks
+            selectButton.onClick.RemoveAllListeners(); 
+            selectButton.onClick.AddListener(OnSlotClicked);
+        }
+    }
+
+    // This runs when the player clicks the button
+    private void OnSlotClicked()
+    {
+        // Find the Gacha script in the current scene
+        GachaBehaviour gacha = Object.FindAnyObjectByType<GachaBehaviour>();
+        
+        if (gacha != null)
+        {
+            // Tell the Gacha "I was chosen!"
+            gacha.SelectCatForPrize(slotIndex);
+        }
+        else
+        {
+            Debug.LogWarning("TeamSlotUI: Clicked, but no GachaBehaviour found in scene!");
         }
     }
 
@@ -81,7 +105,7 @@ public class TeamSlotUI : MonoBehaviour
             if (fearText != null) fearText.text = "";
         }
 
-        // Reset Button
+        // Reset Button State (Default to off until Gacha turns it on)
         if (selectButton != null) selectButton.interactable = false; 
     }
 

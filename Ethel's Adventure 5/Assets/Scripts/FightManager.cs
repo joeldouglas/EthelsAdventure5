@@ -217,7 +217,7 @@ public class FightManager : MonoBehaviour
         if(PlayerController.Instance != null)
         {
             // Level 1 = 1.0, Level 2 = 1.2, Level 3 = 1.4 (if scalar is 0.2)
-            currentMultiplier = baseDifficulty + ((PlayerController.Instance.currentLevel - 1) * levelScalar);
+            currentMultiplier = baseDifficulty * ((PlayerController.Instance.currentLevel - 1) * levelScalar);
         }
         
         Debug.Log($"DIFFCULTY: Level {PlayerController.Instance.currentLevel} | Multiplier: {currentMultiplier}");

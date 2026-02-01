@@ -4,33 +4,78 @@ using TMPro;
 
 public class TeamSlotUI : MonoBehaviour
 {
-    // --- ADD THIS LINE ---
-    [Tooltip("Set this to 0, 1, or 2 in the Inspector to match the Team List")]
-    public int slotIndex; 
-    // ---------------------
+    [Header("Visuals")]
+    public Image catImage;       
+    public Image maskOverlay;    // Ensure this is linked!
 
-    [Header("Visual Elements")]
-    public Image catIcon;
+    [Header("Text")]
     public TextMeshProUGUI nameText;
-    public TextMeshProUGUI cutenessText; 
-    public TextMeshProUGUI fearText; 
+    public TextMeshProUGUI cutenessText; // New separate field
+    public TextMeshProUGUI fearText;     // New separate field
 
-    [Header("Controls")]
+    [Header("Interaction")]
     public Button selectButton; 
 
-    public void Refresh(Cat liveCat)
+    public void Refresh(Cat catData)
     {
-        if (liveCat == null) return;
-        
-        catIcon.sprite = liveCat.catSprite;
-        nameText.text = liveCat.catName;
-        cutenessText.text = liveCat.TotalCuteness.ToString();
-        fearText.text = liveCat.TotalFear.ToString();
+        // 1. Update Visuals
+        if (catData != null)
+        {
+            // Cat
+            if (catImage != null)
+            {
+                catImage.sprite = catData.catSprite;
+                catImage.enabled = true;
+            }
+
+            // Mask
+            if (maskOverlay != null)
+            {
+                if (catData.equippedMask != null)
+                {
+                    maskOverlay.sprite = catData.equippedMask.maskIcon;
+                    maskOverlay.enabled = true;
+                    maskOverlay.color = catData.equippedMask.finalColor; 
+                }
+                else
+                {
+                    maskOverlay.enabled = false;
+                }
+            }
+
+            // Name
+            if (nameText != null) nameText.text = catData.catName;
+            
+            // Stats (Separated)
+            if (cutenessText != null) cutenessText.text = catData.TotalCuteness.ToString();
+            if (fearText != null) fearText.text = catData.TotalFear.ToString();
+        }
+        else
+        {
+            // Handle Empty Slot
+            if (catImage != null) catImage.enabled = false;
+            if (maskOverlay != null) maskOverlay.enabled = false;
+            if (nameText != null) nameText.text = "Empty";
+            
+            if (cutenessText != null) cutenessText.text = "";
+            if (fearText != null) fearText.text = "";
+        }
+
+        // 2. Reset Button (Always start hidden until Gacha asks for it)
+        if (selectButton != null)
+        {
+            selectButton.interactable = false;
+            selectButton.gameObject.SetActive(false); 
+        }
     }
 
-    public void SetButtonState(bool active)
+    // Called by GachaBehaviour
+    public void SetButtonState(bool isActive)
     {
-        if (selectButton != null) 
-            selectButton.gameObject.SetActive(active);
+        if (selectButton != null)
+        {
+            selectButton.gameObject.SetActive(isActive);
+            selectButton.interactable = isActive;
+        }
     }
 }

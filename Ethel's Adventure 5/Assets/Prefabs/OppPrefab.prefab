@@ -671,6 +671,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1000054290026332341}
+  - {fileID: 6320596362395801670}
   - {fileID: 8638210010585158798}
   - {fileID: 8659022070180852515}
   - {fileID: 6138894040545513614}
@@ -726,16 +727,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3979449821448970228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f86bcc70d55b4aeda4225ffde1cd1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamSlotUI
-  slotIndex: 0
-  catIcon: {fileID: 7888024896852948074}
+  catImage: {fileID: 0}
+  maskOverlay: {fileID: 0}
   nameText: {fileID: 2526825350223710091}
-  cutenessText: {fileID: 2217881002786557717}
-  fearText: {fileID: 8651949254949384218}
+  statsText: {fileID: 0}
   selectButton: {fileID: 0}
 --- !u!114 &1388432210196898929
 MonoBehaviour:
@@ -750,12 +750,88 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fighter
   catImage: {fileID: 7888024896852948074}
+  maskOverlay: {fileID: 8570957691077113451}
   nameTag: {fileID: 2526825350223710091}
   cutenessTag: {fileID: 2217881002786557717}
   fearTag: {fileID: 8651949254949384218}
   currentCuteness: 0
   currentFear: 0
   isPlayer: 0
+--- !u!1 &4852366692408437364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6320596362395801670}
+  - component: {fileID: 3357708797858535281}
+  - component: {fileID: 8570957691077113451}
+  m_Layer: 5
+  m_Name: MaskOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6320596362395801670
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852366692408437364}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450524432345037374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -30, y: 6.5}
+  m_SizeDelta: {x: 50, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3357708797858535281
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852366692408437364}
+  m_CullTransparentMesh: 1
+--- !u!114 &8570957691077113451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852366692408437364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 8440341694134235277, guid: 9cf287d60b5124a379dde11373a5297f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5099158438977199581
 GameObject:
   m_ObjectHideFlags: 0

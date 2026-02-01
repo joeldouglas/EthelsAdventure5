@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Neo
   m_EditorClassIdentifier: Assembly-CSharp::Cat
   catName: Neo
-  catSprite: {fileID: 8935144719027914917, guid: f49b677ecce63409e9d149b83a53f153, type: 3}
+  catSprite: {fileID: -1640236406849521260, guid: 65a1a341ab53c4a9099f5319b8d19b6d, type: 3}
   baseCuteness: 1
   baseFear: 3
   equippedMask: {fileID: 0}

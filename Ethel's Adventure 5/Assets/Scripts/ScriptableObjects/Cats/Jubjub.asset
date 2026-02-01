@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jubjub
   m_EditorClassIdentifier: Assembly-CSharp::Cat
   catName: Jubjub
-  catSprite: {fileID: 8935144719027914917, guid: f49b677ecce63409e9d149b83a53f153, type: 3}
+  catSprite: {fileID: -7270192110562828144, guid: 80fd197972c124729bce6c6c9221cea1, type: 3}
   baseCuteness: 3
   baseFear: 1
   equippedMask: {fileID: 0}

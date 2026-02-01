@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f29f61bb8b85324fb978192873ea34d, type: 3}
   m_Name: Jinks
   m_EditorClassIdentifier: Assembly-CSharp::Cat
-  catName: 
-  catSprite: {fileID: 0}
-  baseCuteness: 0
-  baseFear: 0
+  catName: Jinks
+  catSprite: {fileID: 9113566018012692626, guid: 6472d98808b8942a3a1f64f31cab63bb, type: 3}
+  baseCuteness: 2
+  baseFear: 2
   equippedMask: {fileID: 0}

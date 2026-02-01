@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d006b285a77f8114b95ca7e8b8376976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem
+  root: {fileID: 1486942813778765560}
   dialogueSpeed: 0.03
   progressPrompt: {fileID: 6393441021715101869}
   LEFT: {fileID: 3843562727791714534}

@@ -13,7 +13,7 @@ using UnityEngine.InputSystem;
 public class DialogueSystem : MonoBehaviour
 {
 
-    private GameObject root;
+    public GameObject root;
 
     public float dialogueSpeed = 0.2f;
     public Queue<DialogueLine> dialogueQueue = new();
@@ -45,12 +45,14 @@ public class DialogueSystem : MonoBehaviour
     private void Awake()
     {
 
-        root = gameObject;
+        
         
     }
 
     private void Start()
     {
+        root = gameObject;
+
         if (root.activeSelf)
             root.SetActive(false);
 
@@ -63,17 +65,13 @@ public class DialogueSystem : MonoBehaviour
         for (int i = start; i < end + 1; i++)
             dialogueQueue.Enqueue(dialoguePool[i]);
 
-
+        StartDialogue();
     }
 
 
     public void StartDialogue()
-    {
-        /* disabled for testing
-        DialogueLine dl = dialogueQueue.Dequeue();          
-        SpeakLine(dl, dl.isLeft ? LEFT : RIGHT);
-        */
-
+    {                       
+        /*
         Debug.Log($"Starting dialogue");
 
         DialogueLine dl1 = 
@@ -83,6 +81,7 @@ public class DialogueSystem : MonoBehaviour
 
         dialogueQueue.Enqueue(dl1);
         dialogueQueue.Enqueue(dl2);
+        */
         
         SpeakNextLine();
 

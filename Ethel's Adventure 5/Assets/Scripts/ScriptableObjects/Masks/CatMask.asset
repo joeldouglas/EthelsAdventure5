@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d5ed1059196f7478e62475790aa7f5, type: 3}
   m_Name: CatMask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
-  maskTypeName: 
-  maskIcon: {fileID: 0}
+  maskTypeName: Cat
+  maskIcon: {fileID: -697082169120684614, guid: f33e3e65fc810194eb2460e3c1d7812c, type: 3}
   rarityTiers:
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
+  - rarityLabel: Common
+    tierColor: {r: 0.9803922, g: 0.9215687, b: 0.8431373, a: 1}
+    cutenessValue: 2
     fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
+  - rarityLabel: Uncommon
+    tierColor: {r: 0.5803922, g: 0, b: 0.8274511, a: 1}
+    cutenessValue: 4
     fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
+  - rarityLabel: Rare
+    tierColor: {r: 0.254902, g: 0.4117647, b: 0.882353, a: 1}
+    cutenessValue: 6
     fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
+  - rarityLabel: Ultra-Rare
+    tierColor: {r: 0, g: 0.8078432, b: 0.8196079, a: 1}
+    cutenessValue: 8
     fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
+  - rarityLabel: Legendary
+    tierColor: {r: 0.4980392, g: 1, b: 0.8313726, a: 1}
+    cutenessValue: 10
     fearValue: 0
   runtimeDisplayName: 
   finalCuteness: 0

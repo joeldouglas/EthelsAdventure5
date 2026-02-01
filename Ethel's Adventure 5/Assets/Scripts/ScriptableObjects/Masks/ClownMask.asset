@@ -12,29 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d5ed1059196f7478e62475790aa7f5, type: 3}
   m_Name: ClownMask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
-  maskTypeName: 
-  maskIcon: {fileID: 0}
+  maskTypeName: Clown
+  maskIcon: {fileID: -1427172875753872956, guid: ed22e6f8326e3164c9bf17c5e249b0f3, type: 3}
   rarityTiers:
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
-  - rarityLabel: 
-    tierColor: {r: 0, g: 0, b: 0, a: 0}
-    cutenessValue: 0
-    fearValue: 0
+  - rarityLabel: Common
+    tierColor: {r: 1, g: 0.3882353, b: 0.2784314, a: 1}
+    cutenessValue: 1
+    fearValue: 1
+  - rarityLabel: Uncommon
+    tierColor: {r: 1, g: 0.854902, b: 0.7254902, a: 1}
+    cutenessValue: 2
+    fearValue: 2
+  - rarityLabel: Rare
+    tierColor: {r: 0, g: 0.5450981, b: 0.5450981, a: 1}
+    cutenessValue: 3
+    fearValue: 3
+  - rarityLabel: Ultra-Rare
+    tierColor: {r: 0.5294118, g: 0.8078432, b: 0.9215687, a: 1}
+    cutenessValue: 4
+    fearValue: 4
+  - rarityLabel: Legendary
+    tierColor: {r: 0.4862745, g: 0.9882354, b: 0, a: 1}
+    cutenessValue: 5
+    fearValue: 5
   runtimeDisplayName: 
   finalCuteness: 0
   finalFear: 0

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{04f4eeed-d045-4e7d-80cd-93ae8f6193e0}">
 		<property name="name">
-			<value>Beach</value>
+			<value>Beach_Spatial</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -56,7 +56,11 @@
 			<destination>{d02127b4-9b8b-4eee-9fee-40be972dedb8}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{e41af9de-b92c-450e-a4cb-d17000eebe22}" />
+	<object class="EventAutomatableProperties" id="{e41af9de-b92c-450e-a4cb-d17000eebe22}">
+		<property name="maximumDistance">
+			<value>7.5</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{6c4c1fbf-0dc5-45b7-ae25-353ff35121e2}" />
 	<object class="GroupTrack" id="{7e220a3c-a2e6-4ee3-be18-78e12eb9ce3c}">
 		<relationship name="modules">
@@ -137,6 +141,7 @@
 	<object class="MixerBusEffectChain" id="{0a8990ef-8078-4787-91b7-c17640edc848}">
 		<relationship name="effects">
 			<destination>{0e5c476d-e18e-453d-b6ef-182e79742aee}</destination>
+			<destination>{a9efd11e-d6c1-4a65-9701-53c023762454}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d7bd9fb0-ceb2-4c13-9803-d86a8d9a33c2}" />
@@ -173,5 +178,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{f74f20b0-3b5e-4086-ae07-6a175d9ae66d}" />
 	<object class="MixerBusFader" id="{0e5c476d-e18e-453d-b6ef-182e79742aee}" />
+	<object class="ObjectSpatialiserEffect" id="{a9efd11e-d6c1-4a65-9701-53c023762454}" />
 	<object class="MixerBusFader" id="{705e163b-40a0-4b62-abf7-edcc17299744}" />
 </objects>

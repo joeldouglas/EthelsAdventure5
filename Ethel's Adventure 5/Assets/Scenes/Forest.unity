@@ -128,8 +128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 105762723}
-  - component: {fileID: 105762722}
   - component: {fileID: 105762721}
+  - component: {fileID: 105762724}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -183,21 +183,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.7119639, y: 1.9172202}
   m_EdgeRadius: 0
---- !u!114 &105762722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105762720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90a4790451a6a34dab75804e9e266ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HouseInteraction
-  questBubble: {fileID: 1244169146}
-  houseDialog: Hello! This is my house.
-  proximity: 1.5
 --- !u!4 &105762723
 Transform:
   m_ObjectHideFlags: 0
@@ -207,14 +192,44 @@ Transform:
   m_GameObject: {fileID: 105762720}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.74, y: 1.29, z: 0}
+  m_LocalPosition: {x: -1.045, y: 1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1581328857}
   - {fileID: 916049280}
+  - {fileID: 2018843249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105762724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105762720}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a4790451a6a34dab75804e9e266ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UniversalInteraction
+  interactableUI: {fileID: 1581328856}
+  proximity: 3
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 5e54179a14e2751459252709c80093f7, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &916049279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,15 +1202,15 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 105762723}
     m_Modifications:
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.23767
+      value: 3.28267
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57489
+      value: -0.71510994
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1207,15 +1222,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1685302085578142962, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1443,5 +1458,4 @@ SceneRoots:
   - {fileID: 1619429019}
   - {fileID: 1933105041}
   - {fileID: 3150865398274800604}
-  - {fileID: 435853617729334706}
   - {fileID: 105762723}

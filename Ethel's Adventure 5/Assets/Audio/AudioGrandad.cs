@@ -67,8 +67,11 @@ public static class AudioGrandad
     private static Dictionary<int, List<string>> banks_bySceneIndex =
         new Dictionary<int, List<string>>
         {
-            { 0, new List<string> { "0_Tutorial" } },
-            { 1, new List<string> {  }  }
+            { 0, new List<string>   { "0_Tutorial" } },
+            { 1, new List<string>   {  }  },
+            { 2, new List<string>   { "2_Beach" } },
+            { 8, new List<string>   { "8_SabineShop" } },
+            { 99, new List<string>  { "X_Battle" } }
         };
 
 
@@ -195,11 +198,11 @@ public static class AudioGrandad
             { 1, new List<string> {  } },
             { 2, new List<string> {  } },
             { 3, new List<string> {  } },
-            { 4, new List<string> { "AMB/Casino",  } },
+            { 4, new List<string> { "AMB/Casino"  } },
             { 5, new List<string> {  } },
             { 6, new List<string> {  } },
             { 7, new List<string> {  } },
-            { 8, new List<string> {  } },
+            { 8, new List<string> { "MUS/SabineShop" } },
             { 9, new List<string> {  } },
             { 99, new List<string> { "MUS/Battle_1" } }
         };
@@ -241,6 +244,8 @@ public static class AudioGrandad
         ei.start();
         ei.release();
     }
+
+
 
 
 
@@ -364,7 +369,7 @@ public static class AudioGrandad
                 ei.start();
                 if (DB) db.Log($"Started {ei.GetType().Name} to start scene {i}");
             }
-        else db.LogWarning($"No Event References to start scene {i}");
+        else db.LogWarning($"No Event References to start scene {i}");        
     }
 
 
@@ -381,6 +386,14 @@ public static class AudioGrandad
         if (DB) db.Log($"Converted {path} to {newPath}");
         return rtm.PathToEventReference(newPath);
     }
+
+    #endregion
+
+
+
+    #region Spatialised Events
+
+    public static List<StudioEventEmitter> allEmitters = new();
 
     #endregion
 

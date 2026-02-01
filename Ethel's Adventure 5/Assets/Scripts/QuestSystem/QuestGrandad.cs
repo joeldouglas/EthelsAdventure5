@@ -18,7 +18,9 @@ public static class QuestGrandad
     {
         Fish,
         Tree,
-        Sea
+        Sea,
+        StartQuest,
+        HandIn
     }
 
     #endregion
@@ -82,6 +84,10 @@ public static class QuestGrandad
             QuestInfo info = quest.info;
             foreach (QuestObjective obj in info.objectives)
             {                
+                if (obj.interactableType == InteractableType.StartQuest ||
+                    obj.interactableType == InteractableType.HandIn)
+                        continue;
+
                 objectivesProgress[obj.interactableType] = 0;
                 objectiveRefs[obj.interactableType] = obj;
                 objectivesComplete[obj] = false;

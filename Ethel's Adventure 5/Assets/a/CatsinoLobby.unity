@@ -119,8 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1001 &56819932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1439,7 +1437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f86bcc70d55b4aeda4225ffde1cd1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeamSlotUI
->>>>>>> Stashed changes
 --- !u!1 &972295162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,10 +1448,7 @@ GameObject:
   - component: {fileID: 972295165}
   - component: {fileID: 972295164}
   - component: {fileID: 972295163}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 972295166}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1505,11 +1499,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-<<<<<<< Updated upstream
-  orthographic size: 5
-=======
   orthographic size: 2.6
->>>>>>> Stashed changes
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1540,8 +1530,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!114 &972295166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2774,14 +2762,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33bb4d234847a489691ed6c3b0f83a6b, type: 3}
->>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 972295165}
-<<<<<<< Updated upstream
-=======
   - {fileID: 948130825}
   - {fileID: 848351716}
   - {fileID: 116723785}
@@ -2792,4 +2777,3 @@ SceneRoots:
   - {fileID: 6392732994667230464}
   - {fileID: 608497681}
   - {fileID: 807512475}
->>>>>>> Stashed changes

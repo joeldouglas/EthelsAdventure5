@@ -12,7 +12,7 @@ public class FishHUD : MonoBehaviour
 
     void Update()
     {
-        // The UI "observes" the PlayerController and mimics its value
+        // Changes display to current fish count.
         if (PlayerController.Instance != null && fishText != null)
         {
             fishText.text = PlayerController.Instance.fishCount.ToString();

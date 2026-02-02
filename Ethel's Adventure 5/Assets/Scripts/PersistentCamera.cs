@@ -13,7 +13,7 @@ public class PersistentCamera : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // Prevents duplicates if you return to the first scene
+            Destroy(gameObject); // Deletes camera if in scene.
         }
     }
 }

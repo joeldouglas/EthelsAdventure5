@@ -226,9 +226,9 @@ MonoBehaviour:
   instructions: 0
   currentLevel: 1
   renderer: {fileID: 4416004842083912707}
-  currentSprite: {fileID: 0}
+  currentSprite: {fileID: 4559545383886751772, guid: 8292f5960dd7f4a4196b74e04695c40e, type: 3}
   spriteLeft: {fileID: 21300000, guid: f04851f4434414a039dd293e4c090b97, type: 3}
-  spriteRight: {fileID: 21300000, guid: 95d8860501cb1fb47a08ca438a8d8415, type: 3}
+  spriteRight: {fileID: 4559545383886751772, guid: 8292f5960dd7f4a4196b74e04695c40e, type: 3}
 --- !u!58 &5611759560051538328
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1284,7 +1284,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3708,6 +3708,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3781183845466206069, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
+      propertyPath: spriteRight
+      value: 
+      objectReference: {fileID: 4559545383886751772, guid: 8292f5960dd7f4a4196b74e04695c40e, type: 3}
+    - target: {fileID: 3781183845466206069, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
+      propertyPath: currentSprite
+      value: 
+      objectReference: {fileID: 4559545383886751772, guid: 8292f5960dd7f4a4196b74e04695c40e, type: 3}
     - target: {fileID: 7899577145783932318, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
       propertyPath: m_Name
       value: Player

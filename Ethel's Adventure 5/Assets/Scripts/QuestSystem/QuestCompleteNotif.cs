@@ -12,14 +12,30 @@ public class QuestCompleteNotif : MonoBehaviour
 
     private void Start()
     {
-        Init(null);
+        //Complete(null);
     }
 
-    public void Init(Quest quest)
+
+    public void Begin(Quest quest)
+    {
+        t.text = $"New Quest: {GetQuestObjective(quest)}";
+
+        StartCoroutine(DestroyAfterDelay());
+
+        LeanTween.value(25, 50, showForSeconds)
+            .setEaseOutCubic()
+            .setOnUpdate((float value) =>
+            {
+                t.characterSpacing = value;
+            });
+    }
+
+
+    public void Complete(Quest quest)
     {
 
         //t.text = $"Quest Complete! Return to {quest.info.turnInQuestTo}";
-        t.text = "Quest Complete! Return to the Casino";
+        t.text = $"Quest Complete! Return to {quest.info.turnInQuestTo}";
 
         StartCoroutine(DestroyAfterDelay());
 
@@ -31,6 +47,21 @@ public class QuestCompleteNotif : MonoBehaviour
             });
 
     }
+
+
+
+    private string GetQuestObjective(Quest quest)
+    {
+        return quest.questName switch
+        {
+            QuestGrandad.QuestName.Collect6Fish => "Collect 6 Fish!",
+            QuestGrandad.QuestName.BackAlleys1Fish => "Collect 1 Fish from the Back Alley!",
+            QuestGrandad.QuestName.SearchForestAndSea => "Search the Forest and the Sea for Fish!",
+            _ => "idk probably get some fish"
+        };
+    }
+
+
 
     IEnumerator DestroyAfterDelay()
     {

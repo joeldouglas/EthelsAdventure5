@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895726252010432667}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1428b1ee1caab480ab1236def8d4f259, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,8 +129,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -203,7 +203,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3781183845466206069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +218,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 8
   canMove: 1
+  canInteract: 1
+  fishCount: 0
   playerSprite: {fileID: 0}
+  start: 1
+  instructions: 0
+  currentLevel: 1
+  renderer: {fileID: 4416004842083912707}
+  currentSprite: {fileID: 0}
+  spriteLeft: {fileID: 21300000, guid: f04851f4434414a039dd293e4c090b97, type: 3}
+  spriteRight: {fileID: 21300000, guid: 95d8860501cb1fb47a08ca438a8d8415, type: 3}
 --- !u!58 &5611759560051538328
 CircleCollider2D:
   m_ObjectHideFlags: 0

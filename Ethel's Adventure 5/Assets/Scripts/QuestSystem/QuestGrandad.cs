@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public static class QuestGrandad
@@ -51,6 +52,10 @@ public static class QuestGrandad
     public static Dictionary<Quest, bool> activeQuests = new();
 
     public static Dictionary<Quest, QuestProgress> questProgresses = new();
+
+    public static Dictionary<Quest, DialogueStarter> questDialogues = new();
+
+    public static Dictionary<Quest, QuestInteraction> questHandIns = new();
 
 
 
@@ -124,7 +129,18 @@ public static class QuestGrandad
             objectivesComplete[obj] = true;
 
             if (CheckQuestComplete())
-                QuestGrandad.activeQuests[parentQuest] = true;
+            {
+                activeQuests[parentQuest] = true;
+
+                // switch dialogue to post-quest
+                DialogueStarter dlg = questDialogues[parentQuest];
+                GetDialogueUpdate(out dlg.firstLineID, out dlg.lastLineID);
+
+                // switch interaction to hand-in
+                QuestInteraction qi = questHandIns[parentQuest];
+                qi.interactableType = InteractableType.HandIn;
+
+            }
 
         }
 
@@ -136,6 +152,27 @@ public static class QuestGrandad
             return true;
         }
 
+
+        private void GetDialogueUpdate(out int newStart, out int newEnd)
+        {
+
+            switch (parentQuest.questName)
+            {
+                case QuestName.Collect6Fish:
+                    newStart = 8; newEnd = 9; break;
+
+                case QuestName.BackAlleys1Fish:
+                    newStart = 13; newEnd = 14; break;
+
+                case QuestName.SearchForestAndSea:
+                    newStart = 18; newEnd = 19; break;
+
+                default:
+                    newStart = 0; newEnd = 1; break;
+
+            }
+
+        }
 
 
     }

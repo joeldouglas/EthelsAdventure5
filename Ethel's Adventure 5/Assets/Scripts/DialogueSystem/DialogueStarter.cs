@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using System.Collections;
+using UnityEngine.Events;
 
 public class DialogueStarter : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class DialogueStarter : MonoBehaviour
 
     public int firstLineID;
     public int lastLineID;
+
+    public UnityEvent onDialogueEnd;
 
     public void StartDialogue()
     {
@@ -27,7 +30,7 @@ public class DialogueStarter : MonoBehaviour
         }
 
         DialogueSystem ds = Instantiate(DialogueSystem).GetComponent<DialogueSystem>();
-        ds.Init(firstLineID, lastLineID);
+        ds.Init(firstLineID, lastLineID, onDialogueEnd);
 
     }
 

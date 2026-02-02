@@ -8,17 +8,20 @@ using System.Collections.Generic;
 using static lib_DialogueLines;
 using static lib_CharacterSprites;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueSystem : MonoBehaviour
 {
 
     public GameObject root;
+    public UnityEvent onFinishEvent;
 
     public float dialogueSpeed = 0.2f;
     public Queue<DialogueLine> dialogueQueue = new();
     private string lastSpeaker = "";
     private bool isLeft = true;
+    private bool startup = true;
 
     private bool canProgress = false;
     public GameObject progressPrompt;
@@ -42,6 +45,10 @@ public class DialogueSystem : MonoBehaviour
     [Header("Background")]
     public CanvasGroup bg_Opacity;
 
+    [Header("Sprites Library")]
+    public lib_CharacterSprites libSprites;
+
+
     private void Awake()
     {
 
@@ -60,10 +67,14 @@ public class DialogueSystem : MonoBehaviour
     }
 
 
-    public void Init(int start, int end)
+    public void Init(int start, int end, UnityEvent finishEvent)
     {
-        for (int i = start; i < end + 1; i++)
+        // start - 1 > end ??
+        // or start > end+1 ??
+        for (int i = start - 1; i < end; i++)
             dialogueQueue.Enqueue(dialoguePool[i]);
+
+        onFinishEvent = finishEvent;
 
         StartDialogue();
     }
@@ -83,6 +94,8 @@ public class DialogueSystem : MonoBehaviour
         dialogueQueue.Enqueue(dl2);
         */
         
+        PlayerController.Instance.canInteract = false;
+
         SpeakNextLine();
 
     }
@@ -95,6 +108,11 @@ public class DialogueSystem : MonoBehaviour
 
         if (dialogueQueue.Count == 0)
         {
+            PlayerController.Instance.canInteract = true;
+
+            if (onFinishEvent != null)
+                onFinishEvent.Invoke();
+
             Destroy(root);
             return;
         }
@@ -108,20 +126,27 @@ public class DialogueSystem : MonoBehaviour
             ? Random.Range(0,2) == 0
             : lastSpeaker == dl.speaker ? isLeft : !isLeft;
         */
-            
+          
+        /*
         bool newSpeaker = string.IsNullOrEmpty(lastSpeaker)
             ? false
             : lastSpeaker != dl.speaker;
-
         isLeft = newSpeaker ? !isLeft : isLeft;
+        */
+
+
+
+        isLeft = dl.speaker == "Ethel" ? true : false;
+
+        
 
         GameObject side = isLeft ? LEFT : RIGHT;
         Image img = isLeft ? img_Left : img_Right;
         TMP_Text speaker = isLeft ? t_LeftName : t_RightName;
         TMP_Text dialogue = isLeft ? t_LeftLine : t_RightLine;
 
-        /* disabled for testing
-        img.sprite = libSprites[dl.speaker];*/
+        
+        img.sprite = libSprites.GetSprite(dl.speaker);
         speaker.text = dl.speaker;
         dialogue.text = dl.line;
         lastSpeaker = dl.speaker;
@@ -130,12 +155,12 @@ public class DialogueSystem : MonoBehaviour
         LEFT.SetActive(isLeft);
         RIGHT.SetActive(!isLeft);
 
+
         if (!root.activeSelf)
             root.SetActive(true);
 
         StartCoroutine(AnimateLine(
-            isLeft, side, img.gameObject, speaker, dialogue
-            ));
+            isLeft, side, img.gameObject, speaker, dialogue));
 
 
     }
@@ -157,7 +182,7 @@ public class DialogueSystem : MonoBehaviour
 
         // reassign
         line.text = text;
-        line.ForceMeshUpdate();
+        line.ForceMeshUpdate();                
 
         // animate
         yield return StartCoroutine(Swoop(isLeft, img));
@@ -201,13 +226,16 @@ public class DialogueSystem : MonoBehaviour
         i_rt.anchoredPosition = new Vector3(pos, 0, 0);
         float target = isLeft ? 200 : -200;
 
-        // position text
-             
+        // position text             
         RectTransform t_rt = TEXT.GetComponent<RectTransform>();
         Vector3 t_pos = t_rt.anchoredPosition;
         float textY_up = t_rt.anchoredPosition.y;
         float textY_down = textY_up - 150f;
         t_rt.anchoredPosition = new Vector3(t_pos.x, textY_down, t_pos.z);
+
+        // reactivate display
+        if (!root.activeSelf)
+            root.SetActive(true);
 
         // swoop guy in
         LeanTween.moveLocalX(img.gameObject, target, 0.75f)
@@ -221,13 +249,12 @@ public class DialogueSystem : MonoBehaviour
         LeanTween.alphaCanvas(bg_Opacity, 1, 0.75f)
             .setDelay(0.25f);
 
-        
+        // delay typewriter effect until all objects have finished animation
         yield return new WaitForSeconds(1);
-
-        //StartCoroutine(WaitNext());
 
     }
 
+    // for testing
     IEnumerator WaitNext()
     {
         yield return new WaitForSeconds(3);

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3189308967492501659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7604016774030330725}
+  - component: {fileID: 7158231721087888954}
+  m_Layer: 0
+  m_Name: lib_CharacterSprites
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7604016774030330725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189308967492501659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.93821, y: 1.54852, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7158231721087888954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189308967492501659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b202cf584391e43a6a5f89fa71f8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lib_CharacterSprites
+  Ethel: {fileID: 21300000, guid: d65dbdc0b07a8904ca776c4c5da01138, type: 3}
+  Marge: {fileID: 831398740, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
+  Sabine: {fileID: 21300000, guid: 971ae6e672e33ca47966c6608b7fb552, type: 3}
+  Robin: {fileID: 831398740, guid: 1201c14bb4ee74d8e99e56dc4f3f4fd1, type: 3}
+  Tabby: {fileID: 21300000, guid: 3a0c6124828895e46880f6b6d2a468c7, type: 3}
+  Toby: {fileID: 21300000, guid: d0f10613cc79c804ebb917287642bbe5, type: 3}
+  uhoh: {fileID: 21300000, guid: d8eb60b1e437f034d8b64ca0fdd5bd0a, type: 3}

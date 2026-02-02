@@ -36,8 +36,8 @@ public class UniversalInteraction : MonoBehaviour
         // Check for Spacebar press
         if (isCloseEnough && Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            // Run custom function
-            onInteract.Invoke(); 
+            if (PlayerController.Instance.canInteract)            
+                onInteract.Invoke(); 
         }
     }
 }

@@ -218,6 +218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSystem
   root: {fileID: 1486942813778765560}
+  onFinishEvent:
+    m_PersistentCalls:
+      m_Calls: []
   dialogueSpeed: 0.03
   progressPrompt: {fileID: 6393441021715101869}
   LEFT: {fileID: 3843562727791714534}
@@ -231,6 +234,7 @@ MonoBehaviour:
   t_RightName: {fileID: 5819500045743736885}
   t_RightLine: {fileID: 6413560063793807526}
   bg_Opacity: {fileID: 7327828626440313296}
+  libSprites: {fileID: 7158231721087888954, guid: 7440ed0f38f1c84439640c4e7fb69e1a, type: 3}
 --- !u!1 &1793488988870468321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1447,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &6587438116288177364
 MonoBehaviour:

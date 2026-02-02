@@ -16,7 +16,7 @@ public class DialogueTester : MonoBehaviour
         lib_DialogueLines.LoadDialogue();
         yield return null;
         GameObject obj = Instantiate(Dialogue);
-        obj.GetComponent<DialogueSystem>().Init(0, 5);
+        obj.GetComponent<DialogueSystem>().Init(0, 5, null);
     }
 
 }

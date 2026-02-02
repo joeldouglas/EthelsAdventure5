@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     [Header("Settings")]
     public float speed = 8f;
     public bool canMove = true;
-    
+    public bool canInteract = true;
+
     [Header("Inventory")]
     public int fishCount = 0; // The fish tally
 
@@ -31,6 +32,13 @@ public class PlayerController : MonoBehaviour
 
     public int currentLevel = 1; // This is the level the player has reached
 
+    [Header("Sprites")]
+    public SpriteRenderer renderer;
+    public Sprite currentSprite;
+    public Sprite spriteLeft;
+    public Sprite spriteRight;
+
+
     private void Awake()
     {
         if (Instance == null)
@@ -49,6 +57,13 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         if (rb != null) rb.gravityScale = 0;
+
+
+        // randomly set start sprite
+        currentSprite = Random.Range(0,2) == 0 ? spriteLeft : spriteRight;
+        renderer.sprite = currentSprite;
+
+
     }
 
     private void OnEnable()
@@ -112,8 +127,29 @@ public class PlayerController : MonoBehaviour
 
             if (Keyboard.current.wKey.isPressed) y = 1;
             if (Keyboard.current.sKey.isPressed) y = -1;
-            if (Keyboard.current.aKey.isPressed) x = -1;
-            if (Keyboard.current.dKey.isPressed) x = 1;
+            if (Keyboard.current.aKey.isPressed)
+            {
+                x = -1;
+
+                // swap sprite to left
+                if (currentSprite != spriteLeft)
+                {
+                    currentSprite = spriteLeft;
+                    renderer.sprite = currentSprite;
+                }
+            }
+            if (Keyboard.current.dKey.isPressed)
+            {
+                x = 1;
+
+                // swap sprite to right
+                if (currentSprite != spriteRight)
+                {
+                    currentSprite = spriteRight;
+                    renderer.sprite = currentSprite;
+                }
+
+            }
 
             moveValue = new Vector2(x, y).normalized;
             if (rb != null) rb.linearVelocity = moveValue * speed;

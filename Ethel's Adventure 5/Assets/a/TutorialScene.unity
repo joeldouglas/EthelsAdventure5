@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 89161566}
   - component: {fileID: 89161565}
   - component: {fileID: 89161568}
+  - component: {fileID: 89161569}
   m_Layer: 0
   m_Name: QuestHouse1
   m_TagString: Untagged
@@ -348,6 +349,37 @@ MonoBehaviour:
   DialogueSystem: {fileID: 1486942813778765560, guid: 342769ffcd6c809458032a38c12b3459, type: 3}
   firstLineID: 5
   lastLineID: 7
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 89161569}
+        m_TargetAssemblyTypeName: QuestInteraction, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &89161569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89161564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7ef7d610810b4468bcb75554140557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInteraction
+  questName: 0
+  interactableType: 3
+  questCompleteNotif: {fileID: 4490978775846817053, guid: 0b15bdc21632a4d49897b62328063a69, type: 3}
+  questPrize: {fileID: 3329402368163360268, guid: fa7d99aff0a89ec4a911b1c55e48d70f, type: 3}
 --- !u!1 &148821251
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +391,8 @@ GameObject:
   - component: {fileID: 148821254}
   - component: {fileID: 148821253}
   - component: {fileID: 148821252}
+  - component: {fileID: 148821256}
+  - component: {fileID: 148821255}
   m_Layer: 0
   m_Name: QuestHouse2
   m_TagString: Untagged
@@ -383,13 +417,13 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1acf10edf65dbc742a2ccad758703e09, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 148821256}
+        m_TargetAssemblyTypeName: DialogueStarter, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -458,6 +492,52 @@ Transform:
   - {fileID: 1918196192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &148821255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148821251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7ef7d610810b4468bcb75554140557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInteraction
+  questName: 2
+  interactableType: 3
+  questCompleteNotif: {fileID: 4490978775846817053, guid: 0b15bdc21632a4d49897b62328063a69, type: 3}
+  questPrize: {fileID: 3329402368163360268, guid: fa7d99aff0a89ec4a911b1c55e48d70f, type: 3}
+--- !u!114 &148821256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148821251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796f56fd45c56444b8bd9d90038a1e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
+  DialogueSystem: {fileID: 1486942813778765560, guid: 342769ffcd6c809458032a38c12b3459, type: 3}
+  firstLineID: 15
+  lastLineID: 17
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 148821255}
+        m_TargetAssemblyTypeName: QuestInteraction, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &149254134
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +549,8 @@ GameObject:
   - component: {fileID: 149254137}
   - component: {fileID: 149254136}
   - component: {fileID: 149254135}
+  - component: {fileID: 149254139}
+  - component: {fileID: 149254138}
   m_Layer: 0
   m_Name: QuestHouse3
   m_TagString: Untagged
@@ -493,13 +575,13 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1acf10edf65dbc742a2ccad758703e09, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
+      - m_Target: {fileID: 149254139}
+        m_TargetAssemblyTypeName: DialogueStarter, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -568,6 +650,52 @@ Transform:
   - {fileID: 2081137323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149254138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149254134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7ef7d610810b4468bcb75554140557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInteraction
+  questName: 1
+  interactableType: 3
+  questCompleteNotif: {fileID: 4490978775846817053, guid: 0b15bdc21632a4d49897b62328063a69, type: 3}
+  questPrize: {fileID: 3329402368163360268, guid: fa7d99aff0a89ec4a911b1c55e48d70f, type: 3}
+--- !u!114 &149254139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149254134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796f56fd45c56444b8bd9d90038a1e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueStarter
+  DialogueSystem: {fileID: 1486942813778765560, guid: 342769ffcd6c809458032a38c12b3459, type: 3}
+  firstLineID: 10
+  lastLineID: 12
+  onDialogueEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 149254138}
+        m_TargetAssemblyTypeName: QuestInteraction, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &207483802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,7 +2503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1600664444
 Transform:
   m_ObjectHideFlags: 0
@@ -2403,6 +2531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acf10edf65dbc742a2ccad758703e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HouseInteraction
+  houseDialog: Hello! This is my house.
 --- !u!1 &1686682661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7899577145783932318, guid: 6decbe97663653d40b7bb230a9cc6cac, type: 3}
@@ -2739,6 +2868,7 @@ GameObject:
   - component: {fileID: 1817129479}
   - component: {fileID: 1817129481}
   - component: {fileID: 1817129480}
+  - component: {fileID: 1817129482}
   m_Layer: 0
   m_Name: house_PH_0
   m_TagString: Untagged
@@ -2754,7 +2884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817129478}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2795,17 +2925,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.13618195, y: -1.0481497}
+  m_Offset: {x: 0.1320464, y: -1.0481497}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.65, y: 3.67}
-    newSize: {x: 3.65, y: 3.67}
+    newSize: {x: 1.64, y: 1.67}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.344867, y: 1.4121583}
+  m_Size: {x: 3.336596, y: 1.4121583}
   m_EdgeRadius: 0
 --- !u!212 &1817129481
 SpriteRenderer:
@@ -2856,16 +2986,29 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7411974349392773033, guid: 27aed109fab894ecea1eeeebfd426a21, type: 3}
+  m_Sprite: {fileID: -7411974349392773033, guid: 4772deec178d5864c9da92d1c32ac447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.65, y: 3.67}
+  m_Size: {x: 1.64, y: 1.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1817129482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817129478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4027c7ec44f3c45ab76de989ad4fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HouseInteraction
+  houseDialog: Hello! This is my house.
 --- !u!1 &1840561693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,7 +3187,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918196191}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3146,7 +3289,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7411974349392773033, guid: 27aed109fab894ecea1eeeebfd426a21, type: 3}
+  m_Sprite: {fileID: -7411974349392773033, guid: 4772deec178d5864c9da92d1c32ac447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3154,7 +3297,7 @@ SpriteRenderer:
   m_Size: {x: 3.65, y: 3.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1001 &1971978279
 PrefabInstance:
@@ -3356,7 +3499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081137322}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3458,7 +3601,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7411974349392773033, guid: 27aed109fab894ecea1eeeebfd426a21, type: 3}
+  m_Sprite: {fileID: -7411974349392773033, guid: 4772deec178d5864c9da92d1c32ac447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3466,7 +3609,7 @@ SpriteRenderer:
   m_Size: {x: 3.65, y: 3.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
 --- !u!1 &2144101202
 GameObject:

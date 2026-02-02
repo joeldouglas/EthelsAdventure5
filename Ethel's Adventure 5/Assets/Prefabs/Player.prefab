@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 4371435210369975559}
   - component: {fileID: 3781183845466206069}
   - component: {fileID: 5611759560051538328}
+  - component: {fileID: 3720218834127598621}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -264,3 +265,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
+--- !u!114 &3720218834127598621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899577145783932318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfafd18c9fa98d9458ecc0b89f6429b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentPlayer
